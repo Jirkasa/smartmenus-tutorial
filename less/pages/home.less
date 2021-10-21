@@ -14,5 +14,21 @@
 
     &__content-part {
         flex: 1;
+
+        position: relative;
+    }
+
+    &__content {
+        width: 100%;
+        max-width: @grid-width;
+        
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__text {
+        max-width: 58.5rem;
     }
 }

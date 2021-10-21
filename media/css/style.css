@@ -42,6 +42,28 @@ body {
 body {
   font-family: 'Roboto', sans-serif;
 }
+.heading-primary {
+  font-size: 3.8rem;
+  font-weight: normal;
+  color: #fff;
+}
+.paragraph {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #83a7a5;
+}
+.paragraph--light {
+  color: #fff;
+}
+.paragraph--bigger {
+  font-size: 1.7rem;
+}
+.u-mb-small {
+  margin-bottom: 1rem !important;
+}
+.u-mb-medium {
+  margin-bottom: 2rem !important;
+}
 .page {
   width: 100%;
   max-width: 180rem;
@@ -62,6 +84,7 @@ body {
 .header__heading {
   font-family: 'Montserrat', sans-serif;
   font-size: 2.9rem;
+  font-weight: 700;
   color: #fff;
   text-transform: uppercase;
 }
@@ -81,6 +104,18 @@ body {
   text-transform: uppercase;
   text-decoration: none;
 }
+.button-primary:link,
+.button-primary:visited {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #6fb048;
+  border-radius: 3px;
+  text-decoration: none;
+  padding: 2rem 4.5rem;
+}
 .home-welcome-section {
   background-image: linear-gradient(rgba(45, 109, 111, 0.8), rgba(45, 109, 111, 0.8)), url('../../media/img/Background.png');
   background-size: cover;
@@ -94,4 +129,16 @@ body {
 }
 .home-welcome-section__content-part {
   flex: 1;
+  position: relative;
+}
+.home-welcome-section__content {
+  width: 100%;
+  max-width: 120rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.home-welcome-section__text {
+  max-width: 58.5rem;
 }
