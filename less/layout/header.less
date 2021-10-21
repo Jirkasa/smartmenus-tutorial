@@ -1,0 +1,51 @@
+.header {
+    height: 8.5rem;
+
+    &__content {
+        width: 100%;
+        max-width: @grid-width;
+        margin: 0 auto;
+        
+        height: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__heading {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.9rem;
+
+        color: @colors[white];
+        text-transform: uppercase;
+    }
+
+    &__nav {
+
+        ul {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+
+            list-style: none;
+
+            display: flex;
+        }
+
+        li {
+            &:not(:last-child) {
+                margin-right: 3rem;
+            }
+        }
+
+        a {
+            &:link, &:visited {
+                color: darken(@colors[white], 10%);
+
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v18/JTUSjIg1_i6t8kCHKm45xW4.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v18/JTURjIg1_i6t8kCHKm45_dJE7g4.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.page {
+  width: 100%;
+  max-width: 180rem;
+  margin: 0 auto;
+}
+.header {
+  height: 8.5rem;
+}
+.header__content {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.9rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+.header__nav ul {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  list-style: none;
+  display: flex;
+}
+.header__nav li:not(:last-child) {
+  margin-right: 3rem;
+}
+.header__nav a:link,
+.header__nav a:visited {
+  color: #e6e6e6;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.home-welcome-section {
+  background-image: linear-gradient(rgba(45, 109, 111, 0.8), rgba(45, 109, 111, 0.8)), url('../../media/img/Background.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.home-welcome-section__header-part {
+  flex: 0 0;
+}
+.home-welcome-section__content-part {
+  flex: 1;
+}
