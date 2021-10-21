@@ -1,0 +1,27 @@
+{
+  "name": "smartmenus-tutorial",
+  "version": "1.0.0",
+  "description": "Website about JQuery plugin SmartMenus.",
+  "main": "index.js",
+  "scripts": {
+    "compile:less": "lessc ./less/main.less ./media/css/style.css",
+    "nodemon:compile:less": "nodemon -e less -x \"npm run compile:less\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jirkasa/smartmenus-tutorial.git"
+  },
+  "author": "Jiří Satora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jirkasa/smartmenus-tutorial/issues"
+  },
+  "homepage": "https://github.com/Jirkasa/smartmenus-tutorial#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "less": "^4.1.2",
+    "nodemon": "^2.0.14",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.1"
+  }
+}
