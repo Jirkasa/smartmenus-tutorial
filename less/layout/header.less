@@ -39,14 +39,28 @@
                 margin-right: 3rem;
             }
         }
+    }
 
-        a {
-            &:link, &:visited {
-                color: darken(@colors[white], 10%);
+    &__nav-link {
+        &:link, &:visited {
+            color: darken(@colors[white], 10%);
 
-                text-transform: uppercase;
-                text-decoration: none;
-            }
+            text-transform: uppercase;
+            text-decoration: none;
+
+            transition: all .1s;
+        }
+
+        &:hover, &--active:link, &--active:visited {
+            color: @colors[white];
         }
     }
+}
+
+.header-container {
+    height: 8.5rem;
+
+    background-image: linear-gradient(rgba(@colors[secondary], .8), rgba(@colors[secondary], .8)), url('../../media/img/Background.png');
+    background-size: cover;
+    background-position: center;
 }

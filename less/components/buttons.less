@@ -13,4 +13,18 @@
 
         padding: 2rem 4.5rem;
     }
+
+    &:hover {
+        background-color: darken(@colors[primary], 5%);
+    }
+
+    &:active {
+        background-color: darken(@colors[primary], 7%);
+    }
+
+    &--smaller {
+        &:link, &:visited {
+            padding: 1.5rem 2.5rem;
+        }
+    }
 }

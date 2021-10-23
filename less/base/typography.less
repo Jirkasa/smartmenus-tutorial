@@ -9,7 +9,18 @@ body {
     font-size: 3.8rem;
     font-weight: normal;
 
-    color: @colors[white];
+    color: @colors[secondary-2];
+    
+    &--light {
+        color: @colors[white];
+    }
+}
+
+.heading-secondary {
+    font-size: 3.2rem;
+    font-weight: 300;
+
+    color: @colors[secondary-2];
 }
 
 .paragraph {
@@ -23,5 +34,17 @@ body {
     }
     &--bigger {
         font-size: 1.7rem;
+    }
+}
+
+.anchor {
+    &:link, &:visited {
+        font-weight: 700;
+        color: @colors[primary];
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: darken(@colors[primary], 10%);
     }
 }

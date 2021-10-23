@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../media/css/style.css">
+    <link rel="stylesheet" href="../media/css/smartmenus-themes/sm-blue.css">
+
+    <title>SmartMenus Tutoriál - Co je to SmartMenus a jeho instalace</title>
+
+    <script src="../media/js/libraries/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <div class="page">
+        <div class="header-container">
+            <div class="header__content">
+                <h2 class="header__heading">SmartMenus Tutoriál</h2>
+                <nav class="header__nav">
+                    <ul>
+                        <li><a class="header__nav-link" href="../">Úvod</a></li>
+                        <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
+                        <li><a class="header__nav-link" href="#">Seznam Nastavení</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="article-page">
+            <div class="article-page__content">
+                <main class="article-page__main-side">
+                    <h1 class="heading-primary">Co je to SmartMenus a jeho instalace</h1>
+                    <hr class="u-my-medium">
+                    <p class="paragraph u-mb-small">Vítejte v tutoriálu o JQuery pluginu jménem SmartMenus. Jedná se o plugin, pomocí kterého můžeme na našich webových stránkách jednoduše vytvářet i více složitá menu. Tato menu jsou různě nastavitelná a můžeme si je nastylovat podle sebe nebo použít nějaký defaultní theme, který nám SmartMenus nabízí.</p>
+                    <p class="paragraph u-mb-small">Tvorba menu s pomocí SmartMenus může být jednodušší než kdybychom si jej vytvářeli sami. Pokud budeme dělat nějaké jednodušší menu, tak se bez SmartMenus určitě obejdeme, ale pokud budeme dělat nějaké složitější, které už obsahuje například víceúrovňové rozbalovací seznamy, tak nám použití SmartMenus může hodně usnadnit práci.</p>
+                    <p class="paragraph u-mb-medium">Pokud chcete SmartMenus začít používat, tak se můžete podívat na jeho <a href="https://www.smartmenus.org/" target="_blank" class="anchor">oficiální stránky</a>, kde najdete dokumentaci a pár příkladů jak jej použít. Pokud si ale například budete chtít nastylovat svoje menu úplně sami a nepoužít žádný z defaultních vzhledů, tak možná budete bádat nad tím, proč vám menu nefunguje tak jak má. Měl jsem s tím ze začátku problém a nějakou dobu mi trvalo, než jsem zjistil proč moje menu nefunguje správně. Tento tutoriál jsem vytvořil proto, abych vám začátek se SmartMenus pluginem o něco usnadnil.</p>
+                    <div class="browser u-mb-medium">
+                        <div class="browser__header">
+                            <svg class="browser__icon">
+                                <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                            </svg>
+                            <svg class="browser__icon">
+                                <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                            </svg>
+                            <svg class="browser__icon browser__icon--smaller">
+                                <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                            </svg>
+                            <div class="browser__search-bar">
+                                <svg>
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                </svg>
+                                <span>index.html</span>
+                            </div>
+                            <svg class="browser__icon">
+                                <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                            </svg>
+                            <svg class="browser__icon">
+                                <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                            </svg>
+                        </div>
+                        <div class="browser__viewport">
+                            <ul id="menu-1" class="sm sm-blue">
+                                <li><a href="../">Domů</a></li>
+                                <li><a href="http://www.smartmenus.org/about/">Tutoriály</a>
+                                    <ul>
+                                        <li><a href="#">JavaScript</a>
+                                            <ul>
+                                                <li><a href="https://jirkasa.github.io/funkce-v-js/" target="_blank">Funkce v JS</a></li>
+                                                <li><a href="https://jirkasa.github.io/javascript-promisy/" target="_blank">JS Promisy</a></li>
+                                                <li><a href="http://pole-v-js.4fan.cz/" target="_blank">Pole v JS</a></li>
+                                                <li><a href="http://programovani-her-v-javascriptu.4fan.cz/" target="_blank">Programování her v JS</a></li>
+                                                <li><a href="https://jirkasa.github.io/slick-tutorial/" target="_blank">Slick Tutoriál</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">CSS</a>
+                                            <ul>
+                                                <li><a href="http://css-layouty.4fan.cz/" target="_blank">CSS Layouty</a></li>
+                                                <li><a href="http://strukturovani-css-kodu.4fan.cz/" target="_blank">Strukturování CSS kódu</a></li>
+                                                <li><a href="http://less-preprocesor-navod.4fan.cz/" target="_blank">LESS Preprocesor Návod</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="https://jirkasa.github.io/mysql-tahak/">MySQL Tahák</a></li>
+                                        <li><a href="http://texturovani-v-substance-painteru.4fan.cz/">Texturování v Substance Painteru</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="http://www.smartmenus.org/docs/" target="_blank">Dokumentace</a></li>
+                                <li><a href="#">Dropdown test</a>
+                                <ul>
+                                    <li><a href="#">Menu item</a></li>
+                                    <li><a href="#">Menu item</a></li>
+                                    <li><a href="#" class="disabled">vypnutý menu item</a></li>
+                                    <li><a href="#">Menu item</a></li>
+                                    <li><a href="#">více...</a>
+                                    <ul>
+                                        <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia est reiciendis rem.</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia est reiciendis rem.</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia est reiciendis rem.</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia est reiciendis rem.</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia est reiciendis rem.</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                        <li><a href="#">Menu item</a></li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                                </li>
+                                <li><a href="https://www.smartmenus.org/" target="_blank">SmartMenus</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">Instalace</h2>
+                    <p class="paragraph u-mb-small">Abychom mohli SmartMenus začít používat, tak si jej nejdříve musíme stáhnout a napojit na naši webovou stránku. Můžeme jej stáhnout <a href="https://www.smartmenus.org/download/" target="_blank" class="anchor">odsud</a>. Pokud si SmartMenus stáhnete, tak dostanete zazipovaný soubor se spoustou souborů. Z těchto souborů potřebujete jen soubor jquery.smartmenus.min.js a sm-core-css.css. Soubor sm-core-css.css obsahuje jen nějaké základní styly, které zajišťují, že bude plugin fungovat tak jak má. Pokud budete chtít použít i nějaký předchystaný vzhled menu, tak budete také potřebovat css soubor, který obsahuje pro vámi vybraný vzhled styly. SmartMenus nám dává na vybranou ze čtyř hotových vzhledů: sm-blue, sm-clean, sm-mint a sm-simple. Pokud budete chtít použít například vzhled sm-blue, tak budete potřebovat soubor sm-blue.css.</p>
+                    <p class="paragraph u-mb-small">Protože je SmartMenus JQuery plugin, tak si budeme muset stáhnout také JQuery. Stáhnout jej můžete <a href="https://jquery.com/download/" target="_blank" class="anchor">odsud</a> nebo můžete použít <a href="https://code.jquery.com/" target="_blank" class="anchor">CDN</a>.</p>
+                    <p class="paragraph u-mb-medium">Až máme SmartMenus a JQuery stažené, tak si je na naše webové stránky napojíme. Takže si do hlavičky stránky připojíme základní styly, které jsou potřeba pro správné fungování SmartMenus pluginu (popřípadě také styly pro nastavení vzhledu menu) a před konec body elementu připojíme JQuery a SmartMenus scripty.</p>
+                    <pre class="code-box u-mb-medium"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="cs"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;!-- základní styly zajišťující správné fungování SmartMenus --&gt;
+    &lt;link rel="stylesheet" href="./sm-core-css.css"&gt;
+
+    &lt;!-- pokud chceme použít nějaký hotový vzhled, tak si musíme připojit jeho CSS styly --&gt;
+    &lt;link rel="stylesheet" href="./sm-blue.css"&gt;
+
+    &lt;title&gt;SmartMenus&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- ... --&gt;
+
+    &lt;!-- napojení JQuery a SmartMenus scriptů --&gt;
+    &lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    <p class="paragraph u-mb-medium">V této části jste se dozvěděli jak SmartMenus nainstalovat. V další části si ukážeme jak jej začít používat.</p>
+                    <div class="u-text-center">
+                        <a href="#" class="button-primary button-primary--smaller">pokračovat na další část</a>
+                    </div>
+                </main>
+                <div class="article-page__lateral-side">
+                    <div class="u-position-sticky">
+                        <h2 class="heading-secondary u-mb-small">Části Tutoriálu</h2>
+                        <nav class="navigation">
+                            <ul>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link navigation__link--active"><span>1.</span> Co je to SmartMenus a jeho instalace</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>2.</span> Jak SmartMenus používat</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>3.</span> Nastavení týkající se interakce s menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>4.</span> Animace zobrazování/skrývání sub menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>5.</span> Nastavení týkající se sub menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>6.</span> Nastavení týkající se položek menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>7.</span> Stylování menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>8.</span> Vytvoření přepínacího tlačítka</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>9.</span> Eventy a metody</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../media/js/libraries/jquery.js"></script>
+    <script src="../media/js/libraries/jquery.smartmenus.min.js"></script>
+    <script src="../media/js/parts/co-je-to-smartmenus-a-jeho-instalace.js"></script>
+</body>
+</html>
