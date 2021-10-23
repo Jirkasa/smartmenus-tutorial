@@ -99,6 +99,9 @@ body {
   position: sticky !important;
   top: 3rem;
 }
+.u-width-100 {
+  width: 100%;
+}
 /* Mobile first layout SmartMenus Core CSS (it's not recommended editing these rules)
    You need this once per page no matter how many menu trees or different themes you use.
 -------------------------------------------------------------------------------------------*/
@@ -414,6 +417,7 @@ hr {
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
   padding: 0 0.5rem;
+  user-select: none;
 }
 .browser__icon {
   height: 100%;
@@ -464,6 +468,11 @@ hr {
   font-size: 1.6rem;
   background-color: #6fb048;
   border-radius: 0.5rem;
+}
+.image {
+  border: 0.3rem solid #c3dfb2;
+  border-radius: 0.4rem;
+  background-color: #c3dfb2;
 }
 .home-welcome-section {
   background-image: linear-gradient(rgba(45, 109, 111, 0.8), rgba(45, 109, 111, 0.8)), url('../../media/img/Background.png');
