@@ -167,6 +167,7 @@ pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: 1rem;
+  height: 100%;
 }
 pre code.hljs::-webkit-scrollbar {
   width: 1.3rem;
@@ -352,6 +353,12 @@ code.hljs {
   background-size: cover;
   background-position: center;
 }
+.two-sides {
+  display: grid;
+  grid-auto-columns: calc(50% - 1rem);
+  gap: 2rem;
+  grid-auto-flow: column;
+}
 .button-primary:link,
 .button-primary:visited {
   display: inline-block;
@@ -473,6 +480,52 @@ hr {
   border: 0.3rem solid #c3dfb2;
   border-radius: 0.4rem;
   background-color: #c3dfb2;
+}
+.unordered-list {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #83a7a5;
+  list-style: disc;
+  list-style-position: inside;
+}
+.sm-no-theme {
+  font-size: 1.4rem;
+}
+@media (min-width: 48em) {
+  .sm-no-theme > li:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
+@media (min-width: 48em) {
+  .sm-no-theme ul {
+    position: absolute;
+    width: 12em;
+  }
+  .sm-no-theme li {
+    float: left;
+  }
+  .sm-no-theme.sm-rtl li {
+    float: right;
+  }
+  .sm-no-theme ul li,
+  .sm-no-theme.sm-rtl ul li,
+  .sm-no-theme.sm-vertical li {
+    float: none;
+  }
+  .sm-no-theme a {
+    white-space: nowrap;
+  }
+  .sm-no-theme ul a,
+  .sm-no-theme.sm-vertical a {
+    white-space: normal;
+  }
+  .sm-no-theme .sm-nowrap > li > a,
+  .sm-no-theme .sm-nowrap > li > :not(ul) a {
+    white-space: nowrap;
+  }
+}
+.sm-no-theme-collapsible {
+  font-size: 1.4rem;
 }
 .home-welcome-section {
   background-image: linear-gradient(rgba(45, 109, 111, 0.8), rgba(45, 109, 111, 0.8)), url('../../media/img/Background.png');

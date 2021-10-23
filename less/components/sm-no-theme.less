@@ -1,0 +1,27 @@
+.sm-no-theme {
+    font-size: 1.4rem;
+
+    @media (min-width: #pxToEm(768)[]) {
+        > li {
+            &:not(:last-child) {
+                margin-right: .5rem;
+            }
+        }
+    }
+}
+
+@media (min-width: #pxToEm(768)[]) {
+    .sm-no-theme ul{position:absolute;width:12em;}
+    .sm-no-theme li{float:left;}
+    .sm-no-theme.sm-rtl li{float:right;}
+    .sm-no-theme ul li,.sm-no-theme.sm-rtl ul li,.sm-no-theme.sm-vertical li{float:none;}
+    .sm-no-theme a{white-space:nowrap;}
+    .sm-no-theme ul a,.sm-no-theme.sm-vertical a{white-space:normal;}
+    .sm-no-theme .sm-nowrap > li > a,.sm-no-theme .sm-nowrap > li > :not(ul) a{white-space:nowrap;}
+}
+
+
+
+.sm-no-theme-collapsible {
+    font-size: 1.4rem;
+}

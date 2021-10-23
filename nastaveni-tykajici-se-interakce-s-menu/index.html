@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../media/css/style.css">
+
+    <title>SmartMenus Tutoriál - Nastavení týkající se interakce s menu</title>
+
+    <script src="../media/js/libraries/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <div class="page">
+        <div class="header-container">
+            <div class="header__content">
+                <h2 class="header__heading">SmartMenus Tutoriál</h2>
+                <nav class="header__nav">
+                    <ul>
+                        <li><a class="header__nav-link" href="../">Úvod</a></li>
+                        <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
+                        <li><a class="header__nav-link" href="#">Seznam Nastavení</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="article-page">
+            <div class="article-page__content">
+                <main class="article-page__main-side">
+                    <h1 class="heading-primary">Nastavení týkající se interakce s menu</h1>
+                    <hr class="u-my-medium">
+                    <p class="paragraph u-mb-tiny">V této části si ukážeme nastavení, která se týkají interakce s menu. Dozvíte se tu například jak vypnout automatické otevření sub menu při najetí myši na položku a tak dále. Nastavení, která jsou tu vysvětlena jsou následující:</p>
+                    <ul class="unordered-list u-mb-medium">
+                        <li><b>showOnClick</b> - určuje, jestli se sub menu první úrovně mají otevřít kliknutím na položku namísto najetí myší</li>
+                        <li><b>showTimeout</b> - nastavuje čas, který musí uplynout, než se sub menu při najetí myši na položku nebo při jejím focusnutí otevře</li>
+                        <li><b>hideTimeout</b> - nastavuje čas, který musí uplynout, než se sub menu při odjetí myši pryč nebo při ztrátě focusu zavře</li>
+                        <li><b>noMouseOver</b> - určuje, jestli se má vypnout otevření sub menu při najetí myši na položku</li>
+                        <li><b>hideOnClick</b> - určuje, jestli se mají všechna otevřená sub menu při kliknutí kamkoliv na stránce zavřít</li>
+                        <li><b>collapsibleBehavior</b> - určuje chování položky, která obsahuje sub menu v collapsible módu</li>
+                        <li><b>scrollAccelerate</b> - určuje, jestli se má scrollování ve dlouhých sub menu, které se plně nevejdou na obrazovku zrychlovat, nebo má být pořád stejné</li>
+                        <li><b>scrollStep</b> - nastavuje krok pro scrollování dlouhých sub menu, které se plně nevejdou na obrazovku</li>
+                    </ul>
+                    <h2 class="heading-secondary u-mb-tiny">showOnClick</h2>
+                    <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se sub menu první úrovně mají otevírat kliknutím na položku namísto najetí myši na položku. Defaultní hodnota je false.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus({
+        showOnClick: true // sub menu se budou otevírat kliknutím namísto najetím myši
+    });
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-1" class="sm sm-no-theme">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">showTimeout</h2>
+                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit čas, který musí uplynout, než se při najetí myši na položku nebo při jejím focusnutí otevře sub menu. Čas nastavujeme v milisekundách a defaultní hodnota je 250 milisekund.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus({
+        showTimeout: 1000 // při najetí myši na položku se sekundu počká a až poté se sub menu otevře
+    });
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-2" class="sm sm-no-theme">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">hideTimeout</h2>
+                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit čas, který musí uplynout, než se při odjetí myši nebo ztrátě focusu zavře sub menu. Čas nastavujeme v milisekundách a defaultní hodnota je 500 milisekund.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus({
+        hideTimeout: 2000 // při odjetí myši se sub menu po 2 sekundách zavře
+    });
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-3" class="sm sm-no-theme">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">noMouseOver</h2>
+                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme vypnout otevírání sub menu při najetí myši na položku. Defaultní hodnota je false.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus({
+        noMouseOver: true // sub menu se při najetí myši na položku neotevře
+    });
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-4" class="sm sm-no-theme">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">hideOnClick</h2>
+                    <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se mají všechna otevřená sub menu při kliknutí kamkoliv na stránce zavřít. Defaultní hodnota je true.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus({
+        noMouseOver: true,
+        hideOnClick: false // pokud kamkoliv na stránce klikneme, tak se otevřená sub menu nezavřou (defaultně je nastaveno že se zavřou)
+    });
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-5" class="sm sm-no-theme">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">collapsibleBehavior</h2>
+                    <p class="paragraph u-mb-tiny">Toto nastavení se týká chování položky, která obsahuje sub menu v collapsible módu, když na ni klikneme. Máme na výběr ze šesti možností. Defaultně je nastavena možnost "default". Hodnoty, které můžeme nastavit jsou následující:</p>
+                    <ul class="unordered-list u-mb-small">
+                        <li><b>"default"</b> - první kliknutí na položku otevře sub menu, druhé otevře její odkaz</li>
+                        <li><b>"toggle"</b> - kliknutím na položku nikdy neotevřeme její odkaz, jen se bude otevírat/zavírat sub menu</li>
+                        <li><b>"link"</b> - kliknutím na položku nikdy neotevřeme její sub menu, otevřeme její odkaz</li>
+                        <li><b>"accordion"</b> - stejné jako možnost "default", ale při otevření sub menu se zároveň zavřou všechny viditelné sub menu z hlubších úrovní nebo jiných větví</li>
+                        <li><b>"accordion-toggle"</b> - stejné jako možnost "toggle", ale při otevření sub menu se zároveň zavřou všechny viditelné sub menu z hlubších úrovní nebo jiných větví</li>
+                        <li><b>"accordion-link"</b> - stejné jako možnost "link", ale při otevření sub menu se zároveň zavřou všechny viditelné sub menu z hlubších úrovní nebo jiných větví</li>
+                    </ul>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;!-- aby bylo v ukázce menu vždy v collapsible módu, tak nemá nastaveno žádný vzhled --&gt;
+&lt;ul id="moje-menu" class="sm"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus({
+        collapsibleBehavior: "toggle" // kliknutí na položku obsahující sub menu nikdy neotevře její odkaz (jen se bude otevírat/zavírat její sub menu) 
+    });
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-6" class="sm sm-no-theme-collapsible">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">scrollAccelerate</h2>
+                    <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se má scrollování ve dlouhých sub menu, které se plně nevejdou na obrazovku zrychlovat, nebo má být pořád stejné. Defaultní hodnota je true.</p>
+                    <pre class="code-box u-mb-medium"><code>$('#moje-menu').smartmenus({
+    scrollAccelerate: true
+});</code></pre>
+                    <h2 class="heading-secondary u-mb-tiny">scrollStep</h2>
+                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit krok pro scrollování dlouhých sub menu, které se plně nevejdou na obrazovku. Hodnotu nastavujeme v pixelech a defaultní hodnota je 30.</p>
+                    <pre class="code-box u-mb-medium"><code>$('#moje-menu').smartmenus({
+    scrollStep: 50
+});</code></pre>
+                    <p class="paragraph u-mb-medium">V této části jste se mohli podívat na pár nastavení týkajících se interakce s menu. V další části se podíváme na nastavení týkající se animace zobrazování a skrývání sub menu.</p>
+                    <div class="u-text-center">
+                        <a href="#" class="button-primary button-primary--smaller">pokračovat na další část</a>
+                    </div>
+                </main>
+                <div class="article-page__lateral-side">
+                    <div class="u-position-sticky">
+                        <h2 class="heading-secondary u-mb-small">Části Tutoriálu</h2>
+                        <nav class="navigation">
+                            <ul>
+                                <li class="navigation__item">
+                                    <a href="../co-je-to-smartmenus-a-jeho-instalace/" class="navigation__link"><span>1.</span> Co je to SmartMenus a jeho instalace</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../jak-smartmenus-pouzivat/" class="navigation__link"><span>2.</span> Jak SmartMenus používat</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../nastaveni-tykajici-se-interakce-s-menu/" class="navigation__link navigation__link--active"><span>3.</span> Nastavení týkající se interakce s menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>4.</span> Animace zobrazování/skrývání sub menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>5.</span> Nastavení týkající se sub menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>6.</span> Nastavení týkající se položek menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>7.</span> Stylování menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>8.</span> Vytvoření přepínacího tlačítka</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>9.</span> Eventy a metody</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../media/js/libraries/jquery.js"></script>
+    <script src="../media/js/libraries/jquery.smartmenus.min.js"></script>
+    <script src="../media/js/parts/nastaveni-tykajici-se-interakce-s-menu.js"></script>
+</body>
+</html>
