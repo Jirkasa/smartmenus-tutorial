@@ -355,9 +355,9 @@ code.hljs {
 }
 .two-sides {
   display: grid;
-  grid-auto-columns: calc(50% - 1rem);
+  grid-auto-columns: 100%;
   gap: 2rem;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
 }
 .button-primary:link,
 .button-primary:visited {
@@ -496,6 +496,12 @@ hr {
     margin-right: 0.5rem;
   }
 }
+.sm-no-theme--with-highlighting .highlighted {
+  background-color: orangered;
+}
+.sm-no-theme--with-current .current {
+  background-color: lightgreen;
+}
 @media (min-width: 48em) {
   .sm-no-theme ul {
     position: absolute;
@@ -522,6 +528,29 @@ hr {
   .sm-no-theme .sm-nowrap > li > a,
   .sm-no-theme .sm-nowrap > li > :not(ul) a {
     white-space: nowrap;
+  }
+  /* horizontal sub menus */
+  .sm-no-theme li[data-sm-horizontal-sub] {
+    position: static;
+  }
+  .sm-no-theme li[data-sm-horizontal-sub] > ul > li {
+    margin-right: 0.5rem;
+  }
+  .sm-no-theme li[data-sm-horizontal-sub] > ul {
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+  .sm-no-theme li[data-sm-horizontal-sub] > ul > li {
+    float: left;
+  }
+  .sm-no-theme li[data-sm-horizontal-sub] > .scroll-up,
+  li[data-sm-horizontal-sub] > .scroll-down {
+    display: none !important;
   }
 }
 .sm-no-theme-collapsible {

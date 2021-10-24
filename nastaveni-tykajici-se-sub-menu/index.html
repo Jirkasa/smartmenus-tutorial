@@ -639,9 +639,181 @@
                             </div>
                         </div>
                     </div>
+                    <h2 class="heading-secondary u-mb-tiny">Atribut data-sm-horizontal-sub</h2>
+                    <p class="paragraph u-mb-small">Pomocí tohoto atributu a přidáním pár CSS stylů můžeme vytvářet horizontální sub menu. Zde je CSS kód, který ke správnému fungování tohoto atributu potřebujeme přidat do našeho vlastního vzhledu:</p>
+                    <pre class="code-box u-mb-small"><code>
+@media (min-width: 768px) { /* kdy se přejde z collapsible stavu na normální stav můžeme změnit */
+    /* potřebné styly ke správné funkci atributu data-sm-horizontal-sub */
+    /* ---------- */
+    li[data-sm-horizontal-sub] {
+        position: static;
+    }
+    li[data-sm-horizontal-sub] > ul {
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+    }
+    li[data-sm-horizontal-sub] > ul > li {
+        float: left;
+    }
+    li[data-sm-horizontal-sub] > .scroll-up, li[data-sm-horizontal-sub] > .scroll-down {
+        display: none !important;
+    }
+    /* ---------- */
+
+    /* dále zde můžeme ještě nějak více nastylovat horizontální sub menu */
+}
+                    </code></pre>
+                    <p class="paragraph u-mb-small">Poté co jsme si napsali potřebný CSS kód, který je nutný pro správnou funkci atributu data-sm-horizontal-sub jej můžeme začít používat. Následující ukázka jeho použití ukazuje.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;!-- sub menu, které tato položka obsahuje bude horizontální --&gt;
+    &lt;li data-sm-horizontal-sub="true"&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;další nabídka&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus();
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-9" class="sm sm-no-theme">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li data-sm-horizontal-sub="true"><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">další nabídka</a>
+                                                <ul>
+                                                    <li><a href="#">první odkaz</a></li>
+                                                    <li><a href="#">druhý odkaz</a></li>
+                                                    <li><a href="#">třetí odkaz</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">Atribut data-sm-reverse</h2>
+                    <p class="paragraph u-mb-small">Pomocí atributu data-sm-reverse můžeme pro některá sub menu obrátit směr nastavený vlastností rightToLeftSubMenus.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;!-- sub menu, které obsahuje tato položka bude right to left --&gt;
+    &lt;li data-sm-reverse="true"&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;další nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus();
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-10" class="sm sm-no-theme">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li data-sm-reverse="true"><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">další nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <p class="paragraph u-mb-medium">V této části jsme si ukázali nastavení týkající se sub menu. V příští části se podíváme na nastavení týkající se položek menu.</p>
                     <div class="u-text-center">
-                        <a href="#" class="button-primary button-primary--smaller">pokračovat na další část</a>
+                        <a href="../nastaveni-tykajici-se-polozek-menu/" class="button-primary button-primary--smaller">pokračovat na další část</a>
                     </div>
                 </main>
                 <div class="article-page__lateral-side">
@@ -665,7 +837,7 @@
                                     <a href="../nastaveni-tykajici-se-sub-menu/" class="navigation__link navigation__link--active"><span>5.</span> Nastavení týkající se sub menu</a>
                                 </li>
                                 <li class="navigation__item">
-                                    <a href="#" class="navigation__link"><span>6.</span> Nastavení týkající se položek menu</a>
+                                    <a href="../nastaveni-tykajici-se-polozek-menu/" class="navigation__link"><span>6.</span> Nastavení týkající se položek menu</a>
                                 </li>
                                 <li class="navigation__item">
                                     <a href="#" class="navigation__link"><span>7.</span> Stylování menu</a>

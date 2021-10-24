@@ -23,3 +23,5 @@ $('#menu-7').smartmenus({
 $('#menu-8').smartmenus({
     rightToLeftSubMenus: true
 });
+$('#menu-9').smartmenus();
+$('#menu-10').smartmenus();
