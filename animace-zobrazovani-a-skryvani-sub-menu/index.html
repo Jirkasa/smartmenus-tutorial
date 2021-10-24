@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../media/css/style.css">
 
-    <title>SmartMenus Tutoriál - Nastavení týkající se interakce s menu</title>
+    <title>SmartMenus Tutoriál - Nastavení zobrazování/skrývání sub menu</title>
 
     <script src="../media/js/libraries/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
@@ -29,21 +29,21 @@
         <div class="article-page">
             <div class="article-page__content">
                 <main class="article-page__main-side">
-                    <h1 class="heading-primary">Nastavení týkající se interakce s menu</h1>
+                    <h1 class="heading-primary">Animace zobrazování/skrývání sub menu</h1>
                     <hr class="u-my-medium">
-                    <p class="paragraph u-mb-tiny">V této části si ukážeme nastavení, která se týkají interakce s menu. Dozvíte se tu například jak vypnout automatické otevření sub menu při najetí myši na položku a tak dále. Nastavení, která jsou tu vysvětlena jsou následující:</p>
+                    <p class="paragraph u-mb-tiny">V této části si ukážeme nastavení, která se týkají animace zobrazování/skrývání sub menu. Nastavení, která jsou tu vysvětlena jsou následující:</p>
                     <ul class="unordered-list u-mb-medium">
-                        <li><b>showOnClick</b> - určuje, jestli se sub menu první úrovně mají otevřít kliknutím na položku namísto najetí myší</li>
-                        <li><b>showTimeout</b> - nastavuje čas, který musí uplynout, než se sub menu při najetí myši na položku nebo při jejím focusnutí otevře</li>
-                        <li><b>hideTimeout</b> - nastavuje čas, který musí uplynout, než se sub menu při odjetí myši pryč nebo při ztrátě focusu zavře</li>
-                        <li><b>noMouseOver</b> - určuje, jestli se má vypnout otevření sub menu při najetí myši na položku</li>
-                        <li><b>hideOnClick</b> - určuje, jestli se mají všechna otevřená sub menu při kliknutí kamkoliv na stránce zavřít</li>
-                        <li><b>collapsibleBehavior</b> - určuje chování položky, která obsahuje sub menu v collapsible módu</li>
-                        <li><b>scrollAccelerate</b> - určuje, jestli se má scrollování ve dlouhých sub menu, které se plně nevejdou na obrazovku zrychlovat, nebo má být pořád stejné</li>
-                        <li><b>scrollStep</b> - nastavuje krok pro scrollování dlouhých sub menu, které se plně nevejdou na obrazovku</li>
+                        <li><b>showDuration</b> - nastavuje čas pro animaci otevírání sub menu v normálním stavu</li>
+                        <li><b>showFunction</b> - nastavuje funkci, která se použije, když se má sub menu otevřít v normálním stavu</li>
+                        <li><b>hideDuration</b> - nastavuje čas pro animaci zavírání sub menu v normálním stavu</li>
+                        <li><b>hideFunction</b> - nastavuje funkci, která se použije, když se má sub menu zavřít v normálním stavu</li>
+                        <li><b>collapsibleShowDuration</b> - nastavuje čas pro animaci otevírání sub menu v collapsible stavu</li>
+                        <li><b>collapsibleShowFunction</b> - nastavuje funkci, která se použije, když se má sub menu otevřít v collapsible stavu</li>
+                        <li><b>collapsibleHideDuration</b> - nastavuje čas pro animaci zavírání sub menu v collapsible stavu</li>
+                        <li><b>collapsibleHideFunction</b> - nastavuje funkci, která se použije, když se má sub menu zavřít v collapsible stavu</li>
                     </ul>
-                    <h2 class="heading-secondary u-mb-tiny">showOnClick</h2>
-                    <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se sub menu první úrovně mají otevírat kliknutím na položku namísto najetí myši na položku. Defaultní hodnota je false.</p>
+                    <h2 class="heading-secondary u-mb-tiny">showDuration</h2>
+                    <p class="paragraph u-mb-small">Toto nastavení nastavuje čas pro animaci otevírání sub menu v normálním stavu, když je nastavení showFunction nastaveno na hodnotu null. Pokud pomocí nastavení showFunction používáme vlastní funkci, tak si čas animace určujeme v ní a toto nastavení nemá na nic vliv. Čas nastavujeme v milisekundách a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
     &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
@@ -61,7 +61,8 @@
 &lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     $('#moje-menu').smartmenus({
-        showOnClick: true // sub menu se budou otevírat kliknutím namísto najetím myši
+        showFunction: null, // showDuration nastavení funguje jen když je nastavení showFunction nastaveno na null
+        showDuration: 1000 // animace otevírání sub menu bude trvat 1 sekundu
     });
 &lt;/script&gt;</code></pre>
                         <div class="browser">
@@ -103,8 +104,8 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">showTimeout</h2>
-                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit čas, který musí uplynout, než se při najetí myši na položku nebo při jejím focusnutí otevře sub menu. Čas nastavujeme v milisekundách a defaultní hodnota je 250 milisekund.</p>
+                    <h2 class="heading-secondary u-mb-tiny">showFunction</h2>
+                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit funkci, která se zavolá, když se má sub menu otevřít v normálním stavu. V této funkci můžeme sub menu sami nějakým způsobem otevřít a až jsme hotovi, jen o tom informujeme smartmenus. Funkce, kterou nastavení showFunction předáváme by měla přijímat dva argumenty. Prvním je sub menu element (ul element) a druhým je funkce, kterou musíme zavolat až jsme s otevíráním sub menu hotovi. Následující ukázka ukazuje, jak bychom mohli nastavení showFunction například použít.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
     &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
@@ -122,7 +123,11 @@
 &lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     $('#moje-menu').smartmenus({
-        showTimeout: 1000 // při najetí myši na položku se sekundu počká a až poté se sub menu otevře
+        showFunction: function($ul, complete) {
+            // provede JQuery funkci fadeIn pro zobrazení sub menu a až se funkce
+            // dokončí, dáme o tom smartmenus vědět zavoláním funkce complete
+            $ul.fadeIn(1000, complete);
+        }
     });
 &lt;/script&gt;</code></pre>
                         <div class="browser">
@@ -164,8 +169,8 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">hideTimeout</h2>
-                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit čas, který musí uplynout, než se při odjetí myši nebo ztrátě focusu zavře sub menu. Čas nastavujeme v milisekundách a defaultní hodnota je 500 milisekund.</p>
+                    <h2 class="heading-secondary u-mb-tiny">hideDuration</h2>
+                    <p class="paragraph u-mb-small">Toto nastavení nastavuje čas pro animaci zavírání sub menu v normálním stavu, když je nastavení hideFunction nastaveno na hodnotu null. Pokud pomocí nastavení hideFunction používáme vlastní funkci, tak si čas animace určujeme v ní a toto nastavení nemá na nic vliv. Čas nastavujeme v milisekundách a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
     &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
@@ -183,7 +188,10 @@
 &lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     $('#moje-menu').smartmenus({
-        hideTimeout: 2000 // při odjetí myši se sub menu po 2 sekundách zavře
+        showFunction: function($ul, complete) {
+            hideFunction: null, // hideDuration nastavení funguje jen když je nastavení hideFunction nastaveno na null
+            hideDuration: 1000 // animace zavírání sub menu bude trvat 1 sekundu
+        }
     });
 &lt;/script&gt;</code></pre>
                         <div class="browser">
@@ -225,8 +233,8 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">noMouseOver</h2>
-                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme vypnout otevírání sub menu při najetí myši na položku. Defaultní hodnota je false.</p>
+                    <h2 class="heading-secondary u-mb-tiny">hideFunction</h2>
+                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit funkci, která se zavolá, když se má sub menu zavřít v normálním stavu. V této funkci můžeme sub menu sami nějakým způsobem zavřít a až jsme hotovi, jen o tom informujeme smartmenus. Funkce, kterou nastavení hideFunction předáváme by měla přijímat dva argumenty. Prvním je sub menu element (ul element) a druhým je funkce, kterou musíme zavolat až jsme se zavíráním sub menu hotovi. Následující ukázka ukazuje, jak bychom mohli nastavení hideFunction například použít.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
     &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
@@ -244,7 +252,11 @@
 &lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     $('#moje-menu').smartmenus({
-        noMouseOver: true // sub menu se při najetí myši na položku neotevře
+        hideFunction: function($ul, complete) {
+            // provede JQuery funkci fadeOut pro skrytí sub menu a až se funkce
+            // dokončí, dáme o tom smartmenus vědět zavoláním funkce complete
+            $ul.fadeOut(1000, complete);
+        }
     });
 &lt;/script&gt;</code></pre>
                         <div class="browser">
@@ -286,10 +298,11 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">hideOnClick</h2>
-                    <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se mají všechna otevřená sub menu při kliknutí kamkoliv na stránce zavřít. Defaultní hodnota je true.</p>
+                    <h2 class="heading-secondary u-mb-tiny">collapsibleShowDuration</h2>
+                    <p class="paragraph u-mb-small">Toto nastavení nastavuje čas pro animaci otevírání sub menu v collapsible stavu, když je nastavení collapsibleShowFunction nastaveno na hodnotu null. Pokud pomocí nastavení collapsibleShowFunction používáme vlastní funkci, tak si čas animace určujeme v ní a toto nastavení nemá na nic vliv. Čas nastavujeme v milisekundách a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
-                        <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
+                        <pre class="code-box"><code>&lt;!-- aby bylo v ukázce menu vždy v collapsible módu, tak nemá nastaveno žádný vzhled --&gt;
+&lt;ul id="moje-menu" class="sm"&gt;
     &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
         &lt;ul&gt;
@@ -305,8 +318,8 @@
 &lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     $('#moje-menu').smartmenus({
-        noMouseOver: true,
-        hideOnClick: false // pokud kamkoliv na stránce klikneme, tak se otevřená sub menu nezavřou (defaultně je nastaveno že se zavřou)
+        collapsibleShowFunction: null, // collapsibleShowDuration nastavení funguje jen když je nastavení collapsibleShowFunction nastaveno na null
+        collapsibleShowDuration: 1000 // animace otevírání sub menu bude trvat 1 sekundu
     });
 &lt;/script&gt;</code></pre>
                         <div class="browser">
@@ -334,7 +347,7 @@
                                 </svg>
                             </div>
                             <div class="browser__viewport">
-                                <ul id="menu-5" class="sm sm-no-theme">
+                                <ul id="menu-5" class="sm sm-no-theme-collapsible">
                                     <li><a href="#">první odkaz</a></li>
                                     <li><a href="#">rozbalovací nabídka</a>
                                         <ul>
@@ -348,16 +361,8 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">collapsibleBehavior</h2>
-                    <p class="paragraph u-mb-tiny">Toto nastavení se týká chování položky, která obsahuje sub menu v collapsible módu, když na ni klikneme. Máme na výběr ze šesti možností. Defaultně je nastavena možnost "default". Hodnoty, které můžeme nastavit jsou následující:</p>
-                    <ul class="unordered-list u-mb-small">
-                        <li><b>"default"</b> - první kliknutí na položku otevře sub menu, druhé otevře její odkaz</li>
-                        <li><b>"toggle"</b> - kliknutím na položku nikdy neotevřeme její odkaz, jen se bude otevírat/zavírat sub menu</li>
-                        <li><b>"link"</b> - kliknutím na položku nikdy neotevřeme její sub menu, otevřeme její odkaz</li>
-                        <li><b>"accordion"</b> - stejné jako možnost "default", ale při otevření sub menu se zároveň zavřou všechny viditelné sub menu z hlubších úrovní nebo jiných větví</li>
-                        <li><b>"accordion-toggle"</b> - stejné jako možnost "toggle", ale při otevření sub menu se zároveň zavřou všechny viditelné sub menu z hlubších úrovní nebo jiných větví</li>
-                        <li><b>"accordion-link"</b> - stejné jako možnost "link", ale při otevření sub menu se zároveň zavřou všechny viditelné sub menu z hlubších úrovní nebo jiných větví</li>
-                    </ul>
+                    <h2 class="heading-secondary u-mb-tiny">collapsibleShowFunction</h2>
+                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit funkci, která se zavolá, když se má sub menu otevřít v collapsible stavu. V této funkci můžeme sub menu sami nějakým způsobem otevřít a až jsme hotovi, jen o tom informujeme smartmenus. Funkce, kterou nastavení collapsibleShowFunction předáváme by měla přijímat dva argumenty. Prvním je sub menu element (ul element) a druhým je funkce, kterou musíme zavolat až jsme s otevíráním sub menu hotovi. Následující ukázka ukazuje, jak bychom mohli nastavení collapsibleShowFunction například použít.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;!-- aby bylo v ukázce menu vždy v collapsible módu, tak nemá nastaveno žádný vzhled --&gt;
 &lt;ul id="moje-menu" class="sm"&gt;
@@ -376,7 +381,11 @@
 &lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     $('#moje-menu').smartmenus({
-        collapsibleBehavior: "toggle" // kliknutí na položku obsahující sub menu nikdy neotevře její odkaz (jen se bude otevírat/zavírat její sub menu) 
+        showFunction: function($ul, complete) {
+            // provede JQuery funkci slideDown pro zobrazení sub menu a až se funkce
+            // dokončí, dáme o tom smartmenus vědět zavoláním funkce complete
+            $ul.slideDown(1000, complete);
+        }
     });
 &lt;/script&gt;</code></pre>
                         <div class="browser">
@@ -418,19 +427,141 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">scrollAccelerate</h2>
-                    <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se má scrollování ve dlouhých sub menu, které se plně nevejdou na obrazovku zrychlovat, nebo má být pořád stejné. Defaultní hodnota je true.</p>
-                    <pre class="code-box u-mb-medium"><code>$('#moje-menu').smartmenus({
-    scrollAccelerate: true
-});</code></pre>
-                    <h2 class="heading-secondary u-mb-tiny">scrollStep</h2>
-                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit krok pro scrollování dlouhých sub menu, které se plně nevejdou na obrazovku. Hodnotu nastavujeme v pixelech a defaultní hodnota je 30.</p>
-                    <pre class="code-box u-mb-medium"><code>$('#moje-menu').smartmenus({
-    scrollStep: 50
-});</code></pre>
-                    <p class="paragraph u-mb-medium">V této části jste se mohli podívat na pár nastavení týkajících se interakce s menu. V další části si ukážeme nastavení týkající se animace zobrazování a skrývání sub menu.</p>
+                    <h2 class="heading-secondary u-mb-tiny">collapsibleHideDuration</h2>
+                    <p class="paragraph u-mb-small">Toto nastavení nastavuje čas pro animaci zavírání sub menu v collapsible stavu, když je nastavení collapsibleHideFunction nastaveno na hodnotu null. Pokud pomocí nastavení collapsibleHideFunction používáme vlastní funkci, tak si čas animace určujeme v ní a toto nastavení nemá na nic vliv. Čas nastavujeme v milisekundách a defaultní hodnota je 0.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;!-- aby bylo v ukázce menu vždy v collapsible módu, tak nemá nastaveno žádný vzhled --&gt;
+&lt;ul id="moje-menu" class="sm"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus({
+        showFunction: function($ul, complete) {
+            collapsibleBehavior: 'toggle',
+            collapsibleHideFunction: null, // collapsibleHideDuration nastavení funguje jen když je nastavení collapsibleHideFunction nastaveno na null
+            collapsibleHideDuration: 1000 // animace zavírání sub menu bude trvat 1 sekundu
+        }
+    });
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-7" class="sm sm-no-theme-collapsible">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">collapsibleHideFunction</h2>
+                    <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit funkci, která se zavolá, když se má sub menu zavřít v collapsible stavu. V této funkci můžeme sub menu sami nějakým způsobem zavřít a až jsme hotovi, jen o tom informujeme smartmenus. Funkce, kterou nastavení collapsibleHideFunction předáváme by měla přijímat dva argumenty. Prvním je sub menu element (ul element) a druhým je funkce, kterou musíme zavolat až jsme se zavíráním sub menu hotovi. Následující ukázka ukazuje, jak bychom mohli nastavení collapsibleHideFunction například použít.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;!-- aby bylo v ukázce menu vždy v collapsible módu, tak nemá nastaveno žádný vzhled --&gt;
+&lt;ul id="moje-menu" class="sm"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus({
+        collapsibleHideFunction: function($ul, complete) {
+            // provede JQuery funkci slideUp pro skrytí sub menu a až se funkce
+            // dokončí, dáme o tom smartmenus vědět zavoláním funkce complete
+            $ul.slideUp(1000, complete);
+        }
+    });
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <ul id="menu-8" class="sm sm-no-theme-collapsible">
+                                    <li><a href="#">první odkaz</a></li>
+                                    <li><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="#">první odkaz</a></li>
+                                            <li><a href="#">druhý odkaz</a></li>
+                                            <li><a href="#">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph u-mb-medium">V této části jste se dozvěděli o pár nastaveních týkajících se animace otevírání a zavírání sub menu. V další části se podíváme na další nastavení týkající se sub menu.</p>
                     <div class="u-text-center">
-                        <a href="../animace-zobrazovani-a-skryvani-sub-menu/" class="button-primary button-primary--smaller">pokračovat na další část</a>
+                        <a href="#" class="button-primary button-primary--smaller">pokračovat na další část</a>
                     </div>
                 </main>
                 <div class="article-page__lateral-side">
@@ -445,10 +576,10 @@
                                     <a href="../jak-smartmenus-pouzivat/" class="navigation__link"><span>2.</span> Jak SmartMenus používat</a>
                                 </li>
                                 <li class="navigation__item">
-                                    <a href="../nastaveni-tykajici-se-interakce-s-menu/" class="navigation__link navigation__link--active"><span>3.</span> Nastavení týkající se interakce s menu</a>
+                                    <a href="../nastaveni-tykajici-se-interakce-s-menu/" class="navigation__link"><span>3.</span> Nastavení týkající se interakce s menu</a>
                                 </li>
                                 <li class="navigation__item">
-                                    <a href="../animace-zobrazovani-a-skryvani-sub-menu/" class="navigation__link"><span>4.</span> Animace zobrazování/skrývání sub menu</a>
+                                    <a href="../animace-zobrazovani-a-skryvani-sub-menu/" class="navigation__link navigation__link--active"><span>4.</span> Animace zobrazování/skrývání sub menu</a>
                                 </li>
                                 <li class="navigation__item">
                                     <a href="#" class="navigation__link"><span>5.</span> Nastavení týkající se sub menu</a>
@@ -475,6 +606,6 @@
 
     <script src="../media/js/libraries/jquery.js"></script>
     <script src="../media/js/libraries/jquery.smartmenus.min.js"></script>
-    <script src="../media/js/parts/nastaveni-tykajici-se-interakce-s-menu.js"></script>
+    <script src="../media/js/parts/animace-zobrazovani-a-skryvani-sub-menu.js"></script>
 </body>
 </html>
