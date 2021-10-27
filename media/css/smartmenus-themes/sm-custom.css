@@ -1,0 +1,105 @@
+.sm-custom {
+    font-size: 1.6rem;
+}
+
+/* ul */
+.sm-custom, .sm-custom ul {
+    background-color: #c03861;
+    border-radius: 5px;
+    padding: .5rem;
+}
+
+/* li */
+.sm-custom li:not(:last-child), .sm-custom ul li:not(:last-child) {
+    margin-bottom: .5rem;
+}
+
+/* link */
+.sm-custom a:link, .sm-custom a:visited {
+    color: #fff;
+    background-color: #912747;
+    border-radius: 5px;
+    text-decoration: none;
+    
+    transition: all .2s;
+
+    padding: 1rem 1.5rem;
+
+    position: relative;
+}
+.sm-custom a:hover {
+    background-color: #a12e50;
+}
+
+/* arrow */
+.sm-custom .sub-arrow {
+    display: inline-block;
+    width: 1rem;
+    margin-left: .8rem;
+
+    position: relative;
+}
+.sm-custom .sub-arrow::before, .sm-custom .sub-arrow::after {
+    content: "";
+    display: inline-block;
+
+    background-color: #c43560;
+    border-radius: 2px;
+
+    width: .3rem;
+    height: 1rem;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+
+    transform-origin: bottom;
+}
+.sm-custom .sub-arrow::before {
+    transform: translateX(-50%) rotate(45deg);
+}
+.sm-custom .sub-arrow::after {
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+@media (min-width: 48em) {
+    /* ---------- */
+    .sm-custom ul{position:absolute;width:12em;}
+    .sm-custom li{float:left;}
+    .sm-custom.sm-rtl li{float:right;}
+    .sm-custom ul li,.sm-custom.sm-rtl ul li,.sm-custom.sm-vertical li{float:none;}
+    .sm-custom a{white-space:nowrap;}
+    .sm-custom ul a,.sm-custom.sm-vertical a{white-space:normal;}
+    .sm-custom .sm-nowrap > li > a,.sm-custom .sm-nowrap > li > :not(ul) a{white-space:nowrap;}
+    /* ---------- */
+
+    /* li */
+    .sm-custom > li {
+        margin-right: .5rem;
+    }
+    .sm-custom li:not(:last-child) {
+        margin-bottom: 0;
+    }
+
+    /* arrow */
+    .sm-custom .sub-arrow::before, .sm-custom .sub-arrow::after {
+        transform-origin: left;
+    }
+    /* other-level arrow */
+    .sm-custom .sub-arrow::before {
+        transform: translateX(-50%) translateY(.15rem) rotate(45deg);
+    }
+    .sm-custom .sub-arrow::after {
+        transform: translateX(-50%) translateY(-.15rem) rotate(-45deg);
+    }
+    /* first-level arrow */
+    .sm-custom > li > a .sub-arrow::before, .sm-custom > li > a .sub-arrow::after {
+        transform-origin: bottom;
+    }
+    .sm-custom > li > a .sub-arrow::before {
+        transform: translateX(-50%) rotate(45deg);
+    }
+    .sm-custom > li > a .sub-arrow::after {
+        
+        transform: translateX(-50%) rotate(-45deg);
+    }
+}
