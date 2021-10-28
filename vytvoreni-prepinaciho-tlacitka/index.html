@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../media/css/style.css">
+
+    <title>SmartMenus Tutoriál - Vytvoření přepínacího tlačítka</title>
+
+    <script src="../media/js/libraries/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <div class="page">
+        <div class="header-container">
+            <div class="header__content">
+                <h2 class="header__heading">SmartMenus Tutoriál</h2>
+                <nav class="header__nav">
+                    <ul>
+                        <li><a class="header__nav-link" href="../">Úvod</a></li>
+                        <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
+                        <li><a class="header__nav-link" href="#">Seznam Nastavení</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="article-page">
+            <div class="article-page__content">
+                <main class="article-page__main-side">
+                    <h1 class="heading-primary">Vytvoření přepínacího tlačítka</h1>
+                    <hr class="u-my-medium">
+                    <p class="paragraph u-mb-medium">V této části si ukážeme, jak pro menu vytvořit přepínací tlačítko. K jeho vytvoření SmartMenus plugin nepoužijeme a dokonce k tomu nebudeme potřebovat ani žádný JavaScript, bude fungovat i bez něj.</p>
+                    <h2 class="heading-secondary u-mb-tiny">Checkbox hack</h2>
+                    <p class="paragraph u-mb-medium">Pro vytvoření přepínacího tlačítka nebudeme potřebovat žádný JavaScript. Namísto něj použijeme checkbox, pomocí kterého budeme stylovat ostatní elementy, když bude označený a menu by tedy mělo být otevřené. K tomu využijeme pseudo třídu :checked a různe CSS kombinátory (třeba + nebo ~) pro výběr elementů. Následující ukázka stylování elementu, když je checkbox označený ukazuje. Když checkbox není označený, tak má box modrou barvu, a když je označený tak má fialovou barvu.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;style&gt;
+    .button {
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: bold;
+
+        padding: .5rem 1rem;
+
+        color: #fff;
+        background-color: #0f5f5c;
+        border-radius: 5px;
+
+        cursor: pointer;
+    }
+    .button:hover { background-color: #147a77; }
+
+    .box {
+        width: 8rem;
+        height: 4rem;
+
+        margin-top: 1rem;
+
+        background-color: royalblue;
+    }
+
+    /* skrytí checkboxu */
+    .checkbox { display: none; }
+    /* použití + kombinátoru k vybrání sousedního elementu s třídou box */
+    .checkbox:checked + .box {
+        /* když je checkbox označený, tak bude mít box fialovou barvu */
+        background-color: rebeccapurple;
+    }
+&lt;/style&gt;
+
+&lt;!-- label pro checkbox bude sloužit jako tlačítko --&gt;
+&lt;label class="button" for="tlacitko"&gt;tlačítko&lt;/label&gt;
+&lt;input class="checkbox" type="checkbox" id="tlacitko"&gt;
+&lt;div class="box"&gt;&lt;/div&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <style>
+                                    .example-button {
+                                        display: inline-block;
+                                        font-size: 1.6rem;
+                                        font-weight: bold;
+
+                                        padding: .5rem 1rem;
+
+                                        color: #fff;
+                                        background-color: #0f5f5c;
+                                        border-radius: 5px;
+
+                                        cursor: pointer;
+                                    }
+                                    .example-button:hover { background-color: #147a77; }
+
+                                    .example-box {
+                                        width: 8rem;
+                                        height: 4rem;
+
+                                        margin-top: 1rem;
+
+                                        background-color: royalblue;
+                                    }
+
+                                    .example-checkbox { display: none; }
+                                    .example-checkbox:checked + .example-box {
+                                        background-color: rebeccapurple;
+                                    }
+                                </style>
+
+                                <label class="example-button" for="tlacitko">tlačítko</label>
+                                <input class="example-checkbox" type="checkbox" id="tlacitko">
+                                <div class="example-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">Nastylování přepínacího tlačítka</h2>
+                    <p class="paragraph u-mb-medium">Občas můžeme chtít, aby naše přepínací tlačítko vypadalo jinak, když je menu otevřené a když je zavřené. K tomu můžeme také použít :checked pseudo třídu a různé CSS kombinátory. Následující ukázka ukazuje, jak bychom například mohli přepínací tlačítko nastylovat. Tlačítko obsahuje hamburger ikonu a když se checkbox označí (když se menu otevře), tak se tato ikona změní ve křížek.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;style&gt;
+    /* nastylování tlačítka */
+    .button {
+        display: block;
+
+        width: 3rem;
+        height: 3rem;
+
+        background-color: #0f5f5c;
+        border-radius: 5px;
+
+        cursor: pointer;
+
+        position: relative;
+    }
+    /* nastylování ikony tlačítka (prostřední část) */
+    .button__icon {
+        /* umístění ikony do středu tlačítka */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        /* nastavení animace pro přepínání tlačítka */
+        transition: all .3s;
+
+        width: 70%;
+        height: .2rem;
+
+        background-color: #fff;
+    }
+    /* nastylování ikony (horní a dolní část) */
+    .button__icon::before, .button__icon::after {
+        content: ""; /* zobrazení pseudo elementu ::before a ::after */
+        display: block;
+        position: absolute;
+        left: 0;
+
+        /* nastavení animace pro přepínání tlačítka */
+        transition: all .3s;
+
+        width: 100%;
+        height: .2rem;
+
+        background-color: #fff;
+    }
+    /* nastylování ikony (horní část) */
+    .button__icon::before {
+        /* posunutí ::before elementu nahoru */
+        bottom: .8rem;
+    }
+    /* nastylování ikony (dolní část) */
+    .button__icon::after {
+        /* posunutí ::after elementu dolů */
+        top: .8rem;
+    }
+
+    /* skrytí checkboxu */
+    .checkbox { display: none; }
+
+    /* když je checkbox označený, prostřední část ikony zmizí */
+    .checkbox:checked + .button .button__icon {
+        background-color: transparent;
+    }
+    /* když je checkbox označený, horní část ikony sjede dolů a natočí se */
+    .checkbox:checked + .button .button__icon::before {
+        transform: translateY(.8rem) rotate(45deg);
+    }
+    /* když je checkbox označený, dolní část ikony vyjede nahoru a natočí se */
+    .checkbox:checked + .button .button__icon::after {
+        transform: translateY(-.8rem) rotate(-45deg);
+    }
+&lt;/style&gt;
+&lt;input class="checkbox" type="checkbox" id="tlacitko"&gt;
+&lt;label class="button" for="tlacitko"&gt;&lt;span class="button__icon"&gt;&lt;/span&gt;&lt;/label&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <style>
+                                    .example2-button {
+                                        display: block;
+
+                                        width: 3rem;
+                                        height: 3rem;
+
+                                        background-color: #0f5f5c;
+                                        border-radius: 5px;
+
+                                        cursor: pointer;
+
+                                        position: relative;
+                                    }
+                                    .example2-button__icon {
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+
+                                        transition: all .3s;
+
+                                        width: 70%;
+                                        height: .2rem;
+
+                                        background-color: #fff;
+                                    }
+                                    .example2-button__icon::before, .example2-button__icon::after {
+                                        content: "";
+                                        display: block;
+                                        position: absolute;
+                                        left: 0;
+
+                                        transition: all .3s;
+
+                                        width: 100%;
+                                        height: .2rem;
+
+                                        background-color: #fff;
+                                    }
+                                    .example2-button__icon::before {
+                                        bottom: .8rem;
+                                    }
+                                    .example2-button__icon::after {
+                                        top: .8rem;
+                                    }
+
+                                    .example2-checkbox { display: none; }
+                                    .example2-checkbox:checked + .example2-button .example2-button__icon {
+                                        background-color: transparent;
+                                    }
+                                    .example2-checkbox:checked + .example2-button .example2-button__icon::before {
+                                        transform: translateY(.8rem) rotate(45deg);
+                                    }
+                                    .example2-checkbox:checked + .example2-button .example2-button__icon::after {
+                                        transform: translateY(-.8rem) rotate(-45deg);
+                                    }
+                                </style>
+                                <input class="example2-checkbox" type="checkbox" id="tlacitko2">
+                                <label class="example2-button" for="tlacitko2"><span class="example2-button__icon"></span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="heading-secondary u-mb-tiny">Skrytí/zobrazení menu při stisknutí tlačítka</h2>
+                    <p class="paragraph u-mb-medium">Poté co máme nastylované samotné přepínací tlačítko, tak můžeme zajistit, že se při jeho stisknutí zobrazí/skryje menu. Opět použijeme pseudo třídu :checked a CSS kombinátory. V následující ukázce se přepínací tlačítko objeví jen v collapsible módu, jinak bude menu stále viditelné. Abyste si mohli menu v ukázce zkusit pomocí přepínacího tlačítka zobrazit a skrýt, tak pravděpodobně budete muset zmenšit velikost okna, pokud máte velkou obrazovku.</p>
+                    <div class="two-sides u-mb-medium">
+                        <pre class="code-box"><code>&lt;style&gt;
+    /* ... ostatní styly tu nejsou zobrazeny ... */
+
+    /* menu je skryto */
+    .sm { display: none; }
+    /* při označení checkboxu se menu zobrazí */
+    .checkbox:checked ~ .sm {
+        display: block;
+    }
+
+    @media (min-width: 48em) {
+        /* ... ostatní styly tu nejsou zobrazeny ... */
+
+        /* v normálním stavu (zobrazení pro PC) se přepínací tlačítko nezobrazí */
+        .button {
+            display: none;
+        }
+
+        /* v normálním stavu (zobrazení pro PC) se menu zobrazí vždy */
+        .sm {
+            display: block;
+        }
+    }
+&lt;/style&gt;
+&lt;input class="checkbox" type="checkbox" id="tlacitko"&gt;
+&lt;label class="button" for="tlacitko"&gt;&lt;span class="button__icon"&gt;&lt;/span&gt;&lt;/label&gt;
+
+&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
+    &lt;li&gt;&lt;a href="http://css-layouty.4fan.cz/"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;rozbalovací nabídka&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="http://pole-v-js.4fan.cz/"&gt;první odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="./"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="http://pis-vsemi-deseti.4fan.cz/"&gt;třetí odkaz&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="https://jirkasa.github.io/javascript-promisy/"&gt;druhý odkaz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src="./js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/jquery.smartmenus.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('#moje-menu').smartmenus();
+&lt;/script&gt;</code></pre>
+                        <div class="browser">
+                            <div class="browser__header">
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-left2"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-arrow-right2"></use>
+                                </svg>
+                                <svg class="browser__icon browser__icon--smaller">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-spinner11"></use>
+                                </svg>
+                                <div class="browser__search-bar">
+                                    <svg>
+                                        <use xlink:href="../media/img/icon-sprite.svg#icon-file-text2"></use>
+                                    </svg>
+                                    <span>index.html</span>
+                                </div>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-star-empty"></use>
+                                </svg>
+                                <svg class="browser__icon">
+                                    <use xlink:href="../media/img/icon-sprite.svg#icon-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="browser__viewport">
+                                <style>
+                                    .example3-checkbox { display: none; }
+                                    .example3-checkbox:checked + .example2-button .example2-button__icon {
+                                        background-color: transparent;
+                                    }
+                                    .example3-checkbox:checked + .example2-button .example2-button__icon::before {
+                                        transform: translateY(.8rem) rotate(45deg);
+                                    }
+                                    .example3-checkbox:checked + .example2-button .example2-button__icon::after {
+                                        transform: translateY(-.8rem) rotate(-45deg);
+                                    }
+
+                                    .sm { display: none; }
+                                    .example3-checkbox:checked ~ .sm {
+                                        display: block;
+                                    }
+
+                                    @media (min-width: 48em) {
+                                        .example3-button {
+                                            display: none;
+                                        }
+
+                                        .sm {
+                                            display: block;
+                                        }
+                                    }
+                                </style>
+                                <input class="example3-checkbox" type="checkbox" id="tlacitko3">
+                                <label class="example2-button example3-button" for="tlacitko3"><span class="example2-button__icon"></span></label>
+                                <ul id="menu-1" class="sm sm-no-theme">
+                                    <li><a href="http://css-layouty.4fan.cz/">první odkaz</a></li>
+                                    <li><a href="#">rozbalovací nabídka</a>
+                                        <ul>
+                                            <li><a href="http://pole-v-js.4fan.cz/">první odkaz</a></li>
+                                            <li><a href="./">druhý odkaz</a></li>
+                                            <li><a href="http://pis-vsemi-deseti.4fan.cz/">třetí odkaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="https://jirkasa.github.io/javascript-promisy/">druhý odkaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">V této části jsme si ukázali, jak můžeme pro menu vytvořit přepínací tlačítko. Dokonce k tomu ani není potřeba žádný JavaScript. V další části si ukážeme co jsou to eventy a metody.</p>
+                    <div class="u-text-center">
+                        <a href="#" class="button-primary button-primary--smaller">pokračovat na další část</a>
+                    </div>
+                </main>
+                <div class="article-page__lateral-side">
+                    <div class="u-position-sticky">
+                        <h2 class="heading-secondary u-mb-small">Části Tutoriálu</h2>
+                        <nav class="navigation">
+                            <ul>
+                                <li class="navigation__item">
+                                    <a href="../co-je-to-smartmenus-a-jeho-instalace/" class="navigation__link"><span>1.</span> Co je to SmartMenus a jeho instalace</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../jak-smartmenus-pouzivat/" class="navigation__link"><span>2.</span> Jak SmartMenus používat</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../nastaveni-tykajici-se-interakce-s-menu/" class="navigation__link"><span>3.</span> Nastavení týkající se interakce s menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../animace-zobrazovani-a-skryvani-sub-menu/" class="navigation__link"><span>4.</span> Animace zobrazování/skrývání sub menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../nastaveni-tykajici-se-sub-menu/" class="navigation__link"><span>5.</span> Nastavení týkající se sub menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../nastaveni-tykajici-se-polozek-menu/" class="navigation__link"><span>6.</span> Nastavení týkající se položek menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../stylovani-menu/" class="navigation__link"><span>7.</span> Stylování menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../vytvoreni-prepinaciho-tlacitka/" class="navigation__link navigation__link--active"><span>8.</span> Vytvoření přepínacího tlačítka</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="#" class="navigation__link"><span>9.</span> Eventy a metody</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../media/js/libraries/jquery.js"></script>
+    <script src="../media/js/libraries/jquery.smartmenus.min.js"></script>
+    <script src="../media/js/parts/vytvoreni-prepinaciho-tlacitka.js"></script>
+</body>
+</html>
