@@ -15,16 +15,18 @@
 <body>
     <div class="page">
         <div class="header-container">
-            <div class="header__content">
-                <h2 class="header__heading">SmartMenus Tutoriál</h2>
-                <nav class="header__nav">
-                    <ul>
-                        <li><a class="header__nav-link" href="../">Úvod</a></li>
-                        <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
-                        <li><a class="header__nav-link" href="#">Seznam Nastavení</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <header class="header">
+                <div class="header__content">
+                    <h2 class="header__heading">SmartMenus Tutoriál</h2>
+                    <nav class="header__nav">
+                        <ul>
+                            <li><a class="header__nav-link" href="../">Úvod</a></li>
+                            <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
+                            <li><a class="header__nav-link" href="../seznam-nastaveni/">Seznam Nastavení</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
         </div>
         <div class="article-page">
             <div class="article-page__content">
@@ -44,7 +46,7 @@
                         <li><b>rightToLeftSubMenus</b> - určuje, jestli se mají sub menu zobrazit jako right to left namísto left to right</li>
                     </ul>
                     <p class="paragraph u-mb-medium">Kromě těchto nastavení jsou zde také vysvětleny atributy data-sm-horizontal-sub a data-sm-reverse.</p>
-                    <h2 class="heading-secondary u-mb-tiny">bottomToTopSubMenus</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="bottom-to-top-sub-menus" class="u-id-holder"></span>bottomToTopSubMenus</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme přepnout otevírání sub menu z drop-down na drop-up. Takže se sub menu budou otevírat nahoru namísto dolů.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;div style="height: 10rem;"&gt;&lt;/div&gt;
@@ -120,7 +122,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">mainMenuSubOffsetX</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="main-menu-sub-offset-x" class="u-id-holder"></span>mainMenuSubOffsetX</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje horizontální odsazení pro sub menu první úrovně. Odsazení se aplikuje jen na sub menu první úrovně. Pokud máme ještě další vnořená sub menu, tak se na ně odsazení již neaplikuje. Pro horizontální odsazení sub menu dalších úrovní slouží nastavení subMenusSubOffsetX. Odsazení nastavujeme v pixelech a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -193,7 +195,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">mainMenuSubOffsetY</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="main-menu-sub-offset-y" class="u-id-holder"></span>mainMenuSubOffsetY</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje vertikální odsazení pro sub menu první úrovně. Odsazení se aplikuje jen na sub menu první úrovně. Pokud máme ještě další vnořená sub menu, tak se na ně odsazení již neaplikuje. Pro vertikální odsazení sub menu dalších úrovní slouží nastavení subMenusSubOffsetY. Odsazení nastavujeme v pixelech a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -266,7 +268,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">subMenusSubOffsetX</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="sub-menus-sub-offset-x" class="u-id-holder"></span>subMenusSubOffsetX</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje horizontální odsazení pro sub menu druhé a vyšší úrovně. Odsazení nastavujeme v pixelech a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;!-- aby šlo odsazení vidět, tak jsou sub menu barevně oznažena --&gt;
@@ -340,7 +342,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">subMenusSubOffsetY</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="sub-menus-sub-offset-y" class="u-id-holder"></span>subMenusSubOffsetY</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje vertikální odsazení pro sub menu druhé a vyšší úrovně. Odsazení nastavujeme v pixelech a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;!-- aby šlo odsazení vidět, tak jsou sub menu barevně oznažena --&gt;
@@ -414,7 +416,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">subMenusMaxWidth</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="sub-menus-max-width" class="u-id-holder"></span>subMenusMaxWidth</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje maximální šířku sub menu. Šířku můžeme zadat v jakékoliv CSS jednotce.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -488,7 +490,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">subMenusMinWidth</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="sub-menus-min-width" class="u-id-holder"></span>subMenusMinWidth</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje minimální šířku sub menu. Šířku můžeme zadat v jakékoliv CSS jednotce.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -561,12 +563,12 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">keepInViewport</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="keep-in-viewport" class="u-id-holder"></span>keepInViewport</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje, jestli mají být sub menu přemístěny pokud je to nutné, aby vždy byly uvnitř viewportu. Defaultně je toto nastavení zapnuté.</p>
                     <pre class="code-box u-mb-medium"><code>$('#moje-menu').smartmenus({
     keepInViewport: false // sub menu se nebudou moci přemístit aby se zobrazili uvnitř viewportu pokud to je nutné
 })</code></pre>
-                    <h2 class="heading-secondary u-mb-tiny">rightToLeftSubMenus</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="right-to-left-sub-menus" class="u-id-holder"></span>rightToLeftSubMenus</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se mají sub menu zobrazit jako right to left namísto left to right. Defaultně je toto nastavení vypnuté.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -862,5 +864,7 @@
     <script src="../media/js/libraries/jquery.js"></script>
     <script src="../media/js/libraries/jquery.smartmenus.min.js"></script>
     <script src="../media/js/parts/nastaveni-tykajici-se-sub-menu.js"></script>
+
+    <script type="module" src="../media/js/main.js"></script>
 </body>
 </html>

@@ -15,16 +15,18 @@
 <body>
     <div class="page">
         <div class="header-container">
-            <div class="header__content">
-                <h2 class="header__heading">SmartMenus Tutoriál</h2>
-                <nav class="header__nav">
-                    <ul>
-                        <li><a class="header__nav-link" href="../">Úvod</a></li>
-                        <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
-                        <li><a class="header__nav-link" href="#">Seznam Nastavení</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <header class="header">
+                <div class="header__content">
+                    <h2 class="header__heading">SmartMenus Tutoriál</h2>
+                    <nav class="header__nav">
+                        <ul>
+                            <li><a class="header__nav-link" href="../">Úvod</a></li>
+                            <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
+                            <li><a class="header__nav-link" href="../seznam-nastaveni/">Seznam Nastavení</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
         </div>
         <div class="article-page">
             <div class="article-page__content">
@@ -42,7 +44,7 @@
                         <li><b>collapsibleHideDuration</b> - nastavuje čas pro animaci zavírání sub menu v collapsible stavu</li>
                         <li><b>collapsibleHideFunction</b> - nastavuje funkci, která se použije, když se má sub menu zavřít v collapsible stavu</li>
                     </ul>
-                    <h2 class="heading-secondary u-mb-tiny">showDuration</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="show-duration" class="u-id-holder"></span>showDuration</h2>
                     <p class="paragraph u-mb-small">Toto nastavení nastavuje čas pro animaci otevírání sub menu v normálním stavu, když je nastavení showFunction nastaveno na hodnotu null. Pokud pomocí nastavení showFunction používáme vlastní funkci, tak si čas animace určujeme v ní a toto nastavení nemá na nic vliv. Čas nastavujeme v milisekundách a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -104,7 +106,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">showFunction</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="show-function" class="u-id-holder"></span>showFunction</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit funkci, která se zavolá, když se má sub menu otevřít v normálním stavu. V této funkci můžeme sub menu sami nějakým způsobem otevřít a až jsme hotovi, jen o tom informujeme smartmenus. Funkce, kterou nastavení showFunction předáváme by měla přijímat dva argumenty. Prvním je sub menu element (ul element) a druhým je funkce, kterou musíme zavolat až jsme s otevíráním sub menu hotovi. Následující ukázka ukazuje, jak bychom mohli nastavení showFunction například použít.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -169,7 +171,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">hideDuration</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="hide-duration" class="u-id-holder"></span>hideDuration</h2>
                     <p class="paragraph u-mb-small">Toto nastavení nastavuje čas pro animaci zavírání sub menu v normálním stavu, když je nastavení hideFunction nastaveno na hodnotu null. Pokud pomocí nastavení hideFunction používáme vlastní funkci, tak si čas animace určujeme v ní a toto nastavení nemá na nic vliv. Čas nastavujeme v milisekundách a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -233,7 +235,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">hideFunction</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="hide-function" class="u-id-holder"></span>hideFunction</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit funkci, která se zavolá, když se má sub menu zavřít v normálním stavu. V této funkci můžeme sub menu sami nějakým způsobem zavřít a až jsme hotovi, jen o tom informujeme smartmenus. Funkce, kterou nastavení hideFunction předáváme by měla přijímat dva argumenty. Prvním je sub menu element (ul element) a druhým je funkce, kterou musíme zavolat až jsme se zavíráním sub menu hotovi. Následující ukázka ukazuje, jak bychom mohli nastavení hideFunction například použít.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -298,7 +300,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">collapsibleShowDuration</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="collapsible-show-duration" class="u-id-holder"></span>collapsibleShowDuration</h2>
                     <p class="paragraph u-mb-small">Toto nastavení nastavuje čas pro animaci otevírání sub menu v collapsible stavu, když je nastavení collapsibleShowFunction nastaveno na hodnotu null. Pokud pomocí nastavení collapsibleShowFunction používáme vlastní funkci, tak si čas animace určujeme v ní a toto nastavení nemá na nic vliv. Čas nastavujeme v milisekundách a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;!-- aby bylo v ukázce menu vždy v collapsible módu, tak nemá nastaveno žádný vzhled --&gt;
@@ -361,7 +363,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">collapsibleShowFunction</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="collapsible-show-function" class="u-id-holder"></span>collapsibleShowFunction</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit funkci, která se zavolá, když se má sub menu otevřít v collapsible stavu. V této funkci můžeme sub menu sami nějakým způsobem otevřít a až jsme hotovi, jen o tom informujeme smartmenus. Funkce, kterou nastavení collapsibleShowFunction předáváme by měla přijímat dva argumenty. Prvním je sub menu element (ul element) a druhým je funkce, kterou musíme zavolat až jsme s otevíráním sub menu hotovi. Následující ukázka ukazuje, jak bychom mohli nastavení collapsibleShowFunction například použít.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;!-- aby bylo v ukázce menu vždy v collapsible módu, tak nemá nastaveno žádný vzhled --&gt;
@@ -427,7 +429,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">collapsibleHideDuration</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="collapsible-hide-duration" class="u-id-holder"></span>collapsibleHideDuration</h2>
                     <p class="paragraph u-mb-small">Toto nastavení nastavuje čas pro animaci zavírání sub menu v collapsible stavu, když je nastavení collapsibleHideFunction nastaveno na hodnotu null. Pokud pomocí nastavení collapsibleHideFunction používáme vlastní funkci, tak si čas animace určujeme v ní a toto nastavení nemá na nic vliv. Čas nastavujeme v milisekundách a defaultní hodnota je 0.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;!-- aby bylo v ukázce menu vždy v collapsible módu, tak nemá nastaveno žádný vzhled --&gt;
@@ -493,7 +495,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">collapsibleHideFunction</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="collapsible-hide-function" class="u-id-holder"></span>collapsibleHideFunction</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit funkci, která se zavolá, když se má sub menu zavřít v collapsible stavu. V této funkci můžeme sub menu sami nějakým způsobem zavřít a až jsme hotovi, jen o tom informujeme smartmenus. Funkce, kterou nastavení collapsibleHideFunction předáváme by měla přijímat dva argumenty. Prvním je sub menu element (ul element) a druhým je funkce, kterou musíme zavolat až jsme se zavíráním sub menu hotovi. Následující ukázka ukazuje, jak bychom mohli nastavení collapsibleHideFunction například použít.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;!-- aby bylo v ukázce menu vždy v collapsible módu, tak nemá nastaveno žádný vzhled --&gt;
@@ -610,5 +612,7 @@
     <script src="../media/js/libraries/jquery.js"></script>
     <script src="../media/js/libraries/jquery.smartmenus.min.js"></script>
     <script src="../media/js/parts/animace-zobrazovani-a-skryvani-sub-menu.js"></script>
+
+    <script type="module" src="../media/js/main.js"></script>
 </body>
 </html>

@@ -15,16 +15,18 @@
 <body>
     <div class="page">
         <div class="header-container">
-            <div class="header__content">
-                <h2 class="header__heading">SmartMenus Tutoriál</h2>
-                <nav class="header__nav">
-                    <ul>
-                        <li><a class="header__nav-link" href="../">Úvod</a></li>
-                        <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
-                        <li><a class="header__nav-link" href="#">Seznam Nastavení</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <header class="header">
+                <div class="header__content">
+                    <h2 class="header__heading">SmartMenus Tutoriál</h2>
+                    <nav class="header__nav">
+                        <ul>
+                            <li><a class="header__nav-link" href="../">Úvod</a></li>
+                            <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
+                            <li><a class="header__nav-link" href="../seznam-nastaveni/">Seznam Nastavení</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
         </div>
         <div class="article-page">
             <div class="article-page__content">
@@ -42,7 +44,7 @@
                         <li><b>scrollAccelerate</b> - určuje, jestli se má scrollování ve dlouhých sub menu, které se plně nevejdou na obrazovku zrychlovat, nebo má být pořád stejné</li>
                         <li><b>scrollStep</b> - nastavuje krok pro scrollování dlouhých sub menu, které se plně nevejdou na obrazovku</li>
                     </ul>
-                    <h2 class="heading-secondary u-mb-tiny">showOnClick</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="show-on-click" class="u-id-holder"></span>showOnClick</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se sub menu první úrovně mají otevírat kliknutím na položku namísto najetí myši na položku. Defaultní hodnota je false.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -103,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">showTimeout</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="show-timeout" class="u-id-holder"></span>showTimeout</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit čas, který musí uplynout, než se při najetí myši na položku nebo při jejím focusnutí otevře sub menu. Čas nastavujeme v milisekundách a defaultní hodnota je 250 milisekund.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -164,7 +166,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">hideTimeout</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="hide-timeout" class="u-id-holder"></span>hideTimeout</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit čas, který musí uplynout, než se při odjetí myši nebo ztrátě focusu zavře sub menu. Čas nastavujeme v milisekundách a defaultní hodnota je 500 milisekund.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -225,7 +227,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">noMouseOver</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="no-mouse-over" class="u-id-holder"></span>noMouseOver</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme vypnout otevírání sub menu při najetí myši na položku. Defaultní hodnota je false.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -286,7 +288,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">hideOnClick</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="hide-on-click" class="u-id-holder"></span>hideOnClick</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se mají všechna otevřená sub menu při kliknutí kamkoliv na stránce zavřít. Defaultní hodnota je true.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -348,7 +350,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">collapsibleBehavior</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="collapsible-behavior" class="u-id-holder"></span>collapsibleBehavior</h2>
                     <p class="paragraph u-mb-tiny">Toto nastavení se týká chování položky, která obsahuje sub menu v collapsible módu, když na ni klikneme. Máme na výběr ze šesti možností. Defaultně je nastavena možnost "default". Hodnoty, které můžeme nastavit jsou následující:</p>
                     <ul class="unordered-list u-mb-small">
                         <li><b>"default"</b> - první kliknutí na položku otevře sub menu, druhé otevře její odkaz</li>
@@ -418,12 +420,12 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">scrollAccelerate</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="scroll-accelerate" class="u-id-holder"></span>scrollAccelerate</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se má scrollování ve dlouhých sub menu, které se plně nevejdou na obrazovku zrychlovat, nebo má být pořád stejné. Defaultní hodnota je true.</p>
                     <pre class="code-box u-mb-medium"><code>$('#moje-menu').smartmenus({
     scrollAccelerate: true
 });</code></pre>
-                    <h2 class="heading-secondary u-mb-tiny">scrollStep</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="scroll-step" class="u-id-holder"></span>scrollStep</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit krok pro scrollování dlouhých sub menu, které se plně nevejdou na obrazovku. Hodnotu nastavujeme v pixelech a defaultní hodnota je 30.</p>
                     <pre class="code-box u-mb-medium"><code>$('#moje-menu').smartmenus({
     scrollStep: 50
@@ -479,5 +481,7 @@
     <script src="../media/js/libraries/jquery.js"></script>
     <script src="../media/js/libraries/jquery.smartmenus.min.js"></script>
     <script src="../media/js/parts/nastaveni-tykajici-se-interakce-s-menu.js"></script>
+
+    <script type="module" src="../media/js/main.js"></script>
 </body>
 </html>

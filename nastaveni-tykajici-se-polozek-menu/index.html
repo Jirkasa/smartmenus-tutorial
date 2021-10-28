@@ -15,16 +15,18 @@
 <body>
     <div class="page">
         <div class="header-container">
-            <div class="header__content">
-                <h2 class="header__heading">SmartMenus Tutoriál</h2>
-                <nav class="header__nav">
-                    <ul>
-                        <li><a class="header__nav-link" href="../">Úvod</a></li>
-                        <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
-                        <li><a class="header__nav-link" href="#">Seznam Nastavení</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <header class="header">
+                <div class="header__content">
+                    <h2 class="header__heading">SmartMenus Tutoriál</h2>
+                    <nav class="header__nav">
+                        <ul>
+                            <li><a class="header__nav-link" href="../">Úvod</a></li>
+                            <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
+                            <li><a class="header__nav-link" href="../seznam-nastaveni/">Seznam Nastavení</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
         </div>
         <div class="article-page">
             <div class="article-page__content">
@@ -40,7 +42,7 @@
                         <li><b>markCurrentItem</b> - určuje, jestli by se měla položkám menu, které odkazují na aktuální stránku přidávat CSS třída current</li>
                         <li><b>markCurrentTree</b> - určuje, jestli by se měla CSS třída current přidávat také položkám, které jsou předky položky, která odkazuje na aktuální stránku</li>
                     </ul>
-                    <h2 class="heading-secondary u-mb-tiny">keepHighlighted</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="keep-highlighted" class="u-id-holder"></span>keepHighlighted</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje, jestli by se položkám, které obsahují sub menu měla přidávat CSS třída highlighted, když je jejich sub menu otevřené. Defaultní hodnota je true.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;style&gt;
@@ -118,12 +120,12 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">subIndicators</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="sub-indicators" class="u-id-holder"></span>subIndicators</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje, jestli se má do položek menu (do a elementů) přidávat span element pokud položka obsahuje sub menu. Defaultně je tato možnost zapnutá.</p>
                     <pre class="code-box u-mb-medium"><code>$('moje-menu').smartmenus({
     subIndicators: false // vypnutí přidávání span elementů do položek menu, které obsahují sub menu
 });</code></pre>
-                    <h2 class="heading-secondary u-mb-tiny">subIndicatorsText</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="sub-indicators-text" class="u-id-holder"></span>subIndicatorsText</h2>
                     <p class="paragraph u-mb-small">Pomocí tohoto nastavení můžeme nastavit text, který se vloží do span elementů, které se vkládají do položek, které obsahují sub menu. Defaultní hodnota je prázdný řetězec, takže se do span elementů nepřidává nic.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;ul id="moje-menu" class="sm sm-muj-vzhled"&gt;
@@ -196,7 +198,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">subIndicatorsPos</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="sub-indicators-pos" class="u-id-holder"></span>subIndicatorsPos</h2>
                     <p class="paragraph u-mb-tiny">Toto nastavení určuje, kam se umístí span element, který se vkládá do položek obsahující sub menu. Máme na výběr ze dvou možností:</p>
                     <ul class="unordered-list u-mb-small">
                         <li><b>"prepend"</b> - span se umístí před obsah položky</li>
@@ -274,7 +276,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">markCurrentItem</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="mark-current-item" class="u-id-holder"></span>markCurrentItem</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje, jestli by se měla položkám menu, které odkazují na aktuální stránku přidávat CSS třída current. Defaultní hodnota je false.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;style&gt;
@@ -331,7 +333,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="heading-secondary u-mb-tiny">markCurrentTree</h2>
+                    <h2 class="heading-secondary u-mb-tiny"><span id="mark-current-tree" class="u-id-holder"></span>markCurrentTree</h2>
                     <p class="paragraph u-mb-small">Toto nastavení určuje, jestli by se měla CSS třída current přidávat také položkám, které jsou předky položky, která odkazuje na aktuální stránku. Defaultní hodnota je true.</p>
                     <div class="two-sides u-mb-medium">
                         <pre class="code-box"><code>&lt;style&gt;
@@ -453,5 +455,7 @@
     <script src="../media/js/libraries/jquery.js"></script>
     <script src="../media/js/libraries/jquery.smartmenus.min.js"></script>
     <script src="../media/js/parts/nastaveni-tykajici-se-polozek-menu.js"></script>
+
+    <script type="module" src="../media/js/main.js"></script>
 </body>
 </html>
