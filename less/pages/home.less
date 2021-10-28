@@ -5,9 +5,13 @@
     background-position: center;
 
     height: 100vh;
+    max-height: 100rem;
+    min-height: 40rem;
 
     display: flex;
     flex-direction: column;
+
+    @media print { display: none; }
 
     &__header-part {
         flex: 0 0;
@@ -21,7 +25,8 @@
 
     &__content {
         width: 100%;
-        max-width: @grid-width;
+        padding: 0 3rem;
+        max-width: @grid-width + 6rem;
         
         position: absolute;
         left: 50%;
@@ -61,12 +66,23 @@
 
     &__features {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
 
         div {
             padding: 0 3rem;
 
             width: 33.3333%;
+
+            @media (max-width: #pxToEm(950)[]) {
+                width: 50%;
+            }
+            @media (max-width: #pxToEm(500)[]) {
+                width: 100%;
+            }
+            @media (max-width: #pxToEm(340)[]) {
+                padding: 0;
+            }
         }
     }
 

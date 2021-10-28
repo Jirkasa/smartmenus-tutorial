@@ -2,4 +2,27 @@
     width: 100%;
     max-width: @max-page-width;
     margin: 0 auto;
+
+    box-shadow: 0 1rem 1rem rgba(@colors[black], .2);
+
+    @media (min-width: #pxToEm(2030)[]) {
+        margin: 1rem auto;
+    }
+    @media (min-width: #pxToEm(2050)[]) {
+        margin: 2rem auto;
+    }
+    @media (min-width: #pxToEm(2070)[]) {
+        margin: 3rem auto;
+    }
+    @media (min-width: #pxToEm(2100)[]) {
+        margin: 4rem auto;
+    }
+    @media (min-width: #pxToEm(2150)[]) {
+        margin: 5rem auto;
+    }
+    @media (min-width: #pxToEm(2300)[]) {
+        margin: 7rem auto;
+    }
+
+    @media print { box-shadow: none; }
 }

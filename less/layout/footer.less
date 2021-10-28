@@ -4,6 +4,10 @@
     color: @colors[text];
     text-align: center;
 
+    background-color: @colors[white];
+
+    @media print { display: none; }
+
     &__content {
         width: 100%;
         max-width: @grid-width;

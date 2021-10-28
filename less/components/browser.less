@@ -11,6 +11,10 @@
         padding: 0 .5rem;
 
         user-select: none;
+
+        @media print {
+            border: .2rem solid @colors[secondary];
+        }
     }
 
     &__icon {
@@ -69,5 +73,9 @@
         border-top: none;
 
         overflow: auto;
+
+        @media print {
+            border-color: @colors[secondary];
+        }
     }
 }

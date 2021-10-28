@@ -3,12 +3,20 @@
 
     padding: 8rem 3rem;
 
+    @media (max-width: #pxToEm(370)[]) {
+        padding: 6rem 2rem;
+    }
+
     &__content {
         width: 100%;
         max-width: @grid-width;
         margin: 0 auto;
 
         display: flex;
+
+        @media (max-width: #pxToEm(960)[]) {
+            flex-direction: column-reverse;
+        }
     }
 
     &__main-side {
@@ -19,5 +27,16 @@
     &__lateral-side {
         flex: 0 0 40rem;
         padding-left: 5rem;
+
+        @media (max-width: #pxToEm(960)[]) {
+            padding-left: 0;
+            padding-bottom: 5rem;
+
+            &--hide-on-small {
+                display: none;
+            }
+        }
+
+        @media print { display: none; }
     }
 }
