@@ -86,6 +86,11 @@ body {
 .anchor:hover {
   color: #588c39;
 }
+::selection {
+  color: #fff;
+  background-color: #6fb048;
+  text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+}
 .u-mb-tiny {
   margin-bottom: 0.5rem !important;
 }
@@ -363,6 +368,18 @@ code.hljs {
   background-size: cover;
   background-position: center;
 }
+.footer {
+  font-size: 1.4rem;
+  color: #83a7a5;
+  text-align: center;
+}
+.footer__content {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  border-top: 2px solid #eef1ec;
+}
 .two-sides {
   display: grid;
   grid-auto-columns: 100%;
@@ -567,6 +584,7 @@ hr {
   font-size: 1.4rem;
 }
 .home-welcome-section {
+  background-color: #2d6d6f;
   background-image: linear-gradient(rgba(45, 109, 111, 0.8), rgba(45, 109, 111, 0.8)), url('../../media/img/Background.png');
   background-size: cover;
   background-position: center;
@@ -591,6 +609,45 @@ hr {
 }
 .home-welcome-section__text {
   max-width: 58.5rem;
+}
+.home-features-section {
+  background-color: #fff;
+  padding: 9rem 3rem;
+  padding-bottom: 4rem;
+}
+.home-features-section__content {
+  width: 100%;
+  max-width: 126rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.home-features-section__content hr {
+  max-width: 6.5rem;
+  margin: 2rem auto;
+}
+.home-features-section__content p {
+  max-width: 65rem;
+  margin: 0 auto;
+  margin-bottom: 7rem;
+}
+.home-features-section__features {
+  display: flex;
+  justify-content: center;
+}
+.home-features-section__features div {
+  padding: 0 3rem;
+  width: 33.3333%;
+}
+.home-features-section__feature-icon {
+  width: 5.5rem;
+  height: 5.5rem;
+  fill: #6fb048;
+  margin-bottom: 2.5rem;
+}
+.home-features-section__feature-heading {
+  font-size: 1.8rem;
+  color: #0f5f5c;
+  margin-bottom: 1.5rem;
 }
 .article-page {
   background-color: #fff;

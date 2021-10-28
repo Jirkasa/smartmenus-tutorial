@@ -1,4 +1,5 @@
 .home-welcome-section {
+    background-color: @colors[secondary];
     background-image: linear-gradient(rgba(@colors[secondary], .8), rgba(@colors[secondary], .8)), url('../../media/img/Background.png');
     background-size: cover;
     background-position: center;
@@ -30,5 +31,59 @@
 
     &__text {
         max-width: 58.5rem;
+    }
+}
+
+.home-features-section {
+    background-color: @colors[white];
+
+    padding: 9rem 3rem;
+    padding-bottom: 4rem;
+
+    &__content {
+        width: 100%;
+        max-width: @grid-width + 6rem;
+        margin: 0 auto;
+
+        text-align: center;
+
+        hr {
+            max-width: 6.5rem;
+            margin: 2rem auto;
+        }
+
+        p {
+            max-width: 65rem;
+            margin: 0 auto;
+            margin-bottom: 7rem;
+        }
+    }
+
+    &__features {
+        display: flex;
+        justify-content: center;
+
+        div {
+            padding: 0 3rem;
+
+            width: 33.3333%;
+        }
+    }
+
+    &__feature-icon {
+        width: 5.5rem;
+        height: 5.5rem;
+
+        fill: @colors[primary];
+
+        margin-bottom: 2.5rem;
+    }
+
+    &__feature-heading {
+        font-size: 1.8rem;
+        
+        color: @colors[secondary-2];
+
+        margin-bottom: 1.5rem;
     }
 }

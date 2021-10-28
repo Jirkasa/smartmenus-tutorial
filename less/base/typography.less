@@ -62,3 +62,9 @@ body {
         color: darken(@colors[primary], 10%);
     }
 }
+
+::selection {
+    color: @colors[white];
+    background-color: @colors[primary];
+    text-shadow: .2rem .2rem .2rem rgba(@colors[black], .3);
+}
