@@ -69,6 +69,9 @@ body {
 .heading-primary--light {
   color: #fff;
 }
+.heading-primary--animated {
+  animation: moveInRight 1s 0.4s ease-out both;
+}
 .heading-secondary {
   font-size: 3.2rem;
   font-weight: 300;
@@ -352,6 +355,47 @@ code.hljs {
     transform: translateX(-50%) translateY(0);
   }
 }
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.1) rotate(2.5deg);
+  }
+  50% {
+    transform: scale(1) rotate(5deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(2.5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .page {
   width: 100%;
   max-width: 180rem;
@@ -552,6 +596,10 @@ code.hljs {
 .button-primary--smaller:link,
 .button-primary--smaller:visited {
   padding: 1.5rem 2.5rem;
+}
+.button-primary--animated:link,
+.button-primary--animated:visited {
+  animation: scaleIn 1s both;
 }
 .navigation ul {
   list-style: none;
@@ -828,6 +876,9 @@ hr {
 }
 .home-welcome-section__text {
   max-width: 58.5rem;
+}
+.home-welcome-section__text p {
+  animation: moveInUp 1s 0.4s ease-in-out both;
 }
 .home-features-section {
   background-color: #fff;
