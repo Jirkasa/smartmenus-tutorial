@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../media/css/style.css">
+
+    <title>SmartMenus Tutoriál - Eventy a metody</title>
+
+    <script src="../media/js/libraries/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <div class="page">
+        <div class="header-container">
+            <div class="header__content">
+                <h2 class="header__heading">SmartMenus Tutoriál</h2>
+                <nav class="header__nav">
+                    <ul>
+                        <li><a class="header__nav-link" href="../">Úvod</a></li>
+                        <li><a class="header__nav-link header__nav-link--active" href="../co-je-to-smartmenus-a-jeho-instalace/">Tutoriál</a></li>
+                        <li><a class="header__nav-link" href="#">Seznam Nastavení</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="article-page">
+            <div class="article-page__content">
+                <main class="article-page__main-side">
+                    <h1 class="heading-primary">Eventy a metody</h1>
+                    <hr class="u-my-medium">
+                    <p class="paragraph u-mb-medium">V této části si ukážeme co jsou to metody a eventy. Občas se to může hodit, ale většinou to asi nepoužijete.</p>
+                    <h2 class="heading-secondary u-mb-tiny">Eventy</h2>
+                    <p class="paragraph u-mb-medium">Eventy nám umožňují nastavit si funkce, které se spustí po proběhnutí nějaké akce. Můžeme si například nastavit funkci, která se zavolá když uživatel najede myší na položku menu nebo když na ni třeba klikne. Funkci, kterou smartmenus zavolá po proběhnutí nějaké akce nastavíme pomocí metody jménem on. Této metodě předáváme typ eventu pro který se bude funkce volat a funkci samotnou. K názvům eventů vždy přidáváme text ".smapi". Pokud tedy chceme, nastavit funkci pro event activate, napíšeme activate.smapi.</p>
+                    <pre class="code-box u-mb-medium"><code>// nastavení funkce, která se zavolá po kliknutí na položku menu
+$('#moje-menu').on('click.smapi', function(e, item) {
+    console.log("položka menu byla kliknuta");
+});
+
+// nastavení funkce, která se zavolá po otevření sub menu
+$('#moje-menu').on('show.smapi', function(e, menu) {
+    console.log("sub menu bylo otevřeno");
+});</code></pre>
+                    <p class="paragraph u-mb-small">Zde je přehled všech eventů, kterým můžeme naslouchat:</p>
+                    <h4 class="heading-quaternary u-mb-tiny">activate</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se když je položka menu aktivována a předtím než se zobrazí její sub menu, pokud jej má. Pokud ve funkci vrátíme false, tak se sub menu nezobrazí.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, položka menu (a element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">beforefirstshow</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se pro každé sub menu po jeho prvním zobrazení. Pokud ve funkci vrátíme false, tak se sub menu nezobrazí.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, sub menu (ul element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">beforehide</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se před zavřením sub menu. Pokud ve funkci vrátíme false, tak se sub menu nezavře.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, sub menu (ul element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">beforeshow</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se před otevřením sub menu. Pokud ve funkci vrátíme false, tak se sub menu neotevře.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, sub menu (ul element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">blur</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se když položka menu ztratí focus.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, položka menu (a element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">click</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se po kliknutí na položku menu. Pokud ve funkci vrátíme false, tak se odkaz položky neotevře a pokud položka obsahuje sub menu, také se neotevře. Tento event se spouští také pro vypnuté položky menu.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, položka menu (a element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">focus</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se když položka menu získá focus.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, položka menu (a element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">hide</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se po zavření sub menu.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, sub menu (ul element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">hideall</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se po zavření všech sub menu (třeba při kliknutí mimo menu).</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt</p>
+                    <h4 class="heading-quaternary u-mb-tiny">mouseenter</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se při najetí myši na položku menu.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, položka menu (a element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">mouseleave</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se při odjetí myši pryč z položky menu.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, položka menu (a element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">select</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se při vybrání položky menu, než se načte její odkaz. Pokud ve funkci vrátíme false, tak se položka nevybere, její odkaz se nenačte. Tento event není spouštěn pro vypnuté položky menu.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry funkce:</b> JQuery.Event objekt, položka menu (a element)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">show</h3>
+                    <p class="paragraph u-mb-tiny">Spouští se po otevření sub menu.</p>
+                    <p class="paragraph u-mb-medium"><b>Parametry funkce:</b> JQuery.Event objekt, sub menu (ul element)</p>
+                    <h2 class="heading-secondary u-mb-tiny">Metody</h2>
+                    <p class="paragraph u-mb-small">Metody nám umožňují ovládat menu pomocí kódu. Máme k dispozici metodu pro zavření všech sub menu, vypnutí menu a tak dále. Až na dvě globální metody se všechny metody volají přes metodu smartmenus, kterou používáme také k inicializaci menu. Předáváme jí jméno metody a popřípadě také nějaké argumenty.</p>
+                    <h3 class="heading-tertiary u-mb-tiny">Globální metody</h3>
+                    <p class="paragraph u-mb-small">Globální metody se týkají všech menu instancí, které na stránce máme. Pokud je závoláme, tak se provedou u všech menu.</p>
+                    <pre class="code-box u-mb-medium"><code>// zavře všechna sub menu všech menu na stránce
+$.SmartMenus.hideAll();
+
+// odstraní všechna menu na stránce
+$.SmartMenus.destroy();</code></pre>
+                    <p class="paragraph u-mb-small">Globální metody máme jen tyto dvě:</p>
+                    <h4 class="heading-quaternary u-mb-tiny">destroy</h4>
+                    <p class="paragraph u-mb-small">Odstraní všechna menu na stránce.</p>
+                    <h4 class="heading-quaternary u-mb-tiny">hideAll</h4>
+                    <p class="paragraph u-mb-small">Zavře všechna sub menu všech menu na stránce.</p>
+                    <h3 class="heading-tertiary u-mb-tiny">Metody instancí</h3>
+                    <p class="paragraph u-mb-small">Metody, které voláme přes metodu smartmenus se týkají jen menu, na kterém metody voláme.</p>
+                    <pre class="code-box u-mb-medium"><code>// vypnutí menu
+$('#moje-menu').smartmenus('disable', true);
+
+// zapnutí menu po jeho vypnutím
+$('#moje-menu').smartmenus('enable');
+
+// zavření všech sub menu
+$('#moje-menu').smartmenus('menuHideAll');</code></pre>
+                    <p class="paragraph u-mb-small">Zde je přehled všech metod, které nám smartmenus poskytuje:</p>
+                    <h4 class="heading-quaternary u-mb-tiny">destroy</h4>
+                    <p class="paragraph u-mb-small">Odstraní menu.</p>
+                    <h4 class="heading-quaternary u-mb-tiny">disable</h4>
+                    <p class="paragraph u-mb-tiny">Vypne menu a popřípadě jej překryje průhlednou barvou.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry:</b> hodnota (true/false) určující jestli se má vypnuté menu překrýt průhlednou barvou</p>
+                    <h4 class="heading-quaternary u-mb-tiny">enable</h4>
+                    <p class="paragraph u-mb-small">Pomocí této metody můžeme menu zapnout, pokud jsme jej vypnuli.</p>
+                    <h4 class="heading-quaternary u-mb-tiny">itemActivate</h4>
+                    <p class="paragraph u-mb-tiny">Aktivuje položku menu. Pokud položka obsahuje sub menu, tak se zobrazí.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry:</b> vybraná položka menu pomocí JQuery, která se má aktivovat (např.: $('a#moje-polozka'))</p>
+                    <h4 class="heading-quaternary u-mb-tiny">menuHideAll</h4>
+                    <p class="paragraph u-mb-small">Zavře všechna otevřená sub menu.</p>
+                    <h4 class="heading-quaternary u-mb-tiny">popupHide</h4>
+                    <p class="paragraph u-mb-tiny">Skryje popup menu. Menu je popup menu, když má nastavené nastavení isPopup na hodnotu true. Pokud má menu nastavení isPopup nastaveno na hodnotu false, jedná se o permanentní menu a nemůže být touto metodou skryto.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry:</b> hodnota (true/false) určující jestli se má menu skrýt hned nebo se má počkat než uběhne čas nastavený pomocí nastavení hideTimeout (pokud předáme true, tak se menu skryje hned)</p>
+                    <h4 class="heading-quaternary u-mb-tiny">popupShow</h4>
+                    <p class="paragraph u-mb-tiny">Zobrazí popup menu. Menu je popup menu, když má nastavení nastavení isPopup na hodnotu true. Pokud má menu nastavení isPopup nastaveno na hodnotu false, jedná se o permanentní menu a nemůže být touto metodou zobrazeno. Jako parametry této metodě předáváme, na jakém místě se má popup menu zobrazit.</p>
+                    <p class="paragraph u-mb-small"><b>Parametry:</b> hodnota pro CSS vlastnost left (například '100px'), hodnota pro CSS vlastnost top (například '100px')</p>
+                    <h4 class="heading-quaternary u-mb-tiny">refresh</h4>
+                    <p class="paragraph">Pomocí této metody můžeme menu re-inicializovat, když v něm provedeme nějaké DOM operace (když například přidáme nebo odstraníme položky).</p>
+                </main>
+                <div class="article-page__lateral-side">
+                    <div class="u-position-sticky">
+                        <h2 class="heading-secondary u-mb-small">Části Tutoriálu</h2>
+                        <nav class="navigation">
+                            <ul>
+                                <li class="navigation__item">
+                                    <a href="../co-je-to-smartmenus-a-jeho-instalace/" class="navigation__link"><span>1.</span> Co je to SmartMenus a jeho instalace</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../jak-smartmenus-pouzivat/" class="navigation__link"><span>2.</span> Jak SmartMenus používat</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../nastaveni-tykajici-se-interakce-s-menu/" class="navigation__link"><span>3.</span> Nastavení týkající se interakce s menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../animace-zobrazovani-a-skryvani-sub-menu/" class="navigation__link"><span>4.</span> Animace zobrazování/skrývání sub menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../nastaveni-tykajici-se-sub-menu/" class="navigation__link"><span>5.</span> Nastavení týkající se sub menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../nastaveni-tykajici-se-polozek-menu/" class="navigation__link"><span>6.</span> Nastavení týkající se položek menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../stylovani-menu/" class="navigation__link"><span>7.</span> Stylování menu</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../vytvoreni-prepinaciho-tlacitka/" class="navigation__link"><span>8.</span> Vytvoření přepínacího tlačítka</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a href="../eventy-a-metody/" class="navigation__link navigation__link--active"><span>9.</span> Eventy a metody</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../media/js/libraries/jquery.js"></script>
+    <script src="../media/js/libraries/jquery.smartmenus.min.js"></script>
+</body>
+</html>
